@@ -32,6 +32,8 @@ function login_submit() {
 function login_reset() {
 	var login_form = document.getElementById("login_form");
 	login_form.reset();
+	
+	$("#login_error_msg").empty();
 }
 
 window.onload = function() {

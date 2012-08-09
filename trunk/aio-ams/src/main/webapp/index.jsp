@@ -37,10 +37,10 @@
 				<div class="login_box">
 					<form id="login_form" action="<%=contextPath%>/f9901.do" method="post">
 						<div class="user_name">
-							<input type="text" id="j_username" name="j_username" onkeydown="if (event.keyCode==13){document.getElementById('j_password').select();}" style="width: 288px; height: 29px; border: none; background: #dcdcdc; font-size: 18px; font-family: 黑体;" />
+							<input type="text" id="j_username" name="j_username" onkeydown="if (event.keyCode==13){document.getElementById('j_password').select();}" style="width: 288px; height: 29px; border: none; background: #fff; font-size: 18px; font-family: 黑体;" />
 						</div>
 						<div class="password">
-							<input type="password" id="j_password" name="j_password" onkeydown="if (event.keyCode==13){login_submit();}" style="width: 288px; height: 29px; border: none; background: #dcdcdc; font-size: 18px; font-family: 黑体;" />
+							<input type="password" id="j_password" name="j_password" onkeydown="if (event.keyCode==13){login_submit();}" style="width: 288px; height: 29px; border: none; background: #fff; font-size: 18px; font-family: 黑体;" />
 						</div>
 						<div class="login_error_msg">
 							<span id="login_error_msg" style="color: red;">${errorMessage}${loginTwiceErrorMessage}</span>

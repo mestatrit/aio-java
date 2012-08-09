@@ -18,65 +18,11 @@
 </head>
 
 <body class="main_body">
-   <div class="main">  
-     <div class="header">
-          <div class="right">
-              <div class="logo"></div>
-          </div>
-     	<div class="center"></div>
-         <div class="left">
-              <div class="sub_system_logo">
-                   <img src="images/sub_system_logo_1.png" style="float:right; margin-right:10px;" />
-              </div>
-              <div class="exit_btn">
-                   <img id="img_exit_btn" src="images/exit_btn.png" style="cursor:pointer;" />
-              </div>
-         </div><!-- end of //sub_system_logo//-->
-     </div><!--end of //header//--> 
-		
-     <div class="navigator">
-     	<div id="Menu1" class="first_level">
-            <a id="menu1_1" class="menu1_on"  onclick="m1('1');">系统配置</a>
-            <a id="menu1_2" class="menu1_off" onclick="m1('2');">历史件查询</a>
-            <a id="menu1_3" class="menu1_off" onclick="m1('3');">信用卡</a>
-            <a id="menu1_4" class="menu1_off" onclick="m1('4');">个人贷款</a>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-        <div id="Menu2">
-            <div id="menu2_1" class="second_level">
-                <a id="m2_11" class="menu2_on"  onclick="m2('11', '1');">功能管理1</a>
-                <a id="m2_12" class="menu2_off" onclick="m2('12', '1');">角色管理1</a>
-                <a id="m2_13" class="menu2_off" onclick="m2('13', '1');">用户管理1</a>
-                <a id="m2_14" class="menu2_off" onclick="m2('14', '1');">选项框管理1</a>
-                <div class="clear"></div>
-            </div>
-            <div id="menu2_2" class="second_level" style="display:none;">
-                <a id="m2_21" class="menu2_on"  onclick="m2('21', '2');">功能管理2</a>
-                <a id="m2_22" class="menu2_off" onclick="m2('22', '2');">角色管理2</a>
-                <a id="m2_23" class="menu2_off" onclick="m2('23', '2');">用户管理2</a>
-                <a id="m2_24" class="menu2_off" onclick="m2('24', '2');">选项框管理2</a>
-                <div class="clear"></div>
-            </div>
-            <div id="menu2_3" class="second_level" style="display:none;">
-                <a id="m2_31" class="menu2_on"  onclick="m2('31', '3');">功能管理3</a>
-                <a id="m2_32" class="menu2_off" onclick="m2('32', '3');">角色管理3</a>
-                <a id="m2_33" class="menu2_off" onclick="m2('33', '3');">用户管理3</a>
-                <a id="m2_34" class="menu2_off" onclick="m2('34', '3');">选项框管理3</a>
-                <div class="clear"></div>
-            </div>
-            <div id="menu2_4" class="second_level" style="display:none;">
-                <a id="m2_41" class="menu2_on"  onclick="m2('41', '4');">功能管理4</a>
-                <a id="m2_42" class="menu2_off" onclick="m2('42', '4');">角色管理4</a>
-                <a id="m2_43" class="menu2_off" onclick="m2('43', '4');">用户管理4</a>
-                <a id="m2_44" class="menu2_off" onclick="m2('44', '4');">选项框管理4</a>
-                <div class="clear"></div>
-            </div>
-        </div>
-     </div><!--end of //navigator//-->
-    
-     <div class="space"></div>
-    
+<div class="main">
+	<j:PageHeader contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
+	<j:PageMenu contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
+	<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
+  	 	
      <div class="middle">
         <div class="middle_left">
             <div class="middle_left_top">
@@ -128,15 +74,8 @@
             </div>
         </div><!--end of middle_right-->
      </div><!--end of //middle//-->
-    
-    
-     <div class="bottom">
-     
-     </div><!--end of //bottom//-->
-     
-     <div class="footer">
-         <div class="copyright"></div>
-     </div><!--end of //footer//--> 
-   </div><!--end of //main//-->
- </body><!-- end of //main_body//-->
+	
+	<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
+</div>
+ </body>
 </html>
