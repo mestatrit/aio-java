@@ -15,3 +15,15 @@ function m2(fid, pfid) {
 	var secondLevelMenuId = 'm2_' + fid;
 	$("#" + secondLevelMenuId).attr("class", "menu2_on");
 }
+
+//退出应用
+function logout() {
+	if (confirm("您确定要离开影像流历史库查询系统？")) {
+		window.location.href = baseUrl + "f9902.do";
+	}
+}
+
+window.onload = function() {
+	// 注册退出按钮上的事件处理程序
+	EventUtil.addHandler(document.getElementById("img_exit_btn"),"click",logout);
+};

@@ -12,6 +12,9 @@
 <script type="text/javascript" src="js/client.js"></script>
 <script type="text/javascript" src="js/EventUtil.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+	var baseUrl = '<%=basePath %>';
+</script>
 </head>
 
 <body class="main_body">
@@ -26,7 +29,7 @@
                    <img src="images/sub_system_logo_1.png" style="float:right; margin-right:10px;" />
               </div>
               <div class="exit_btn">
-                   <img src="images/exit_btn.png" />
+                   <img id="img_exit_btn" src="images/exit_btn.png" style="cursor:pointer;" />
               </div>
          </div><!-- end of //sub_system_logo//-->
      </div><!--end of //header//--> 
