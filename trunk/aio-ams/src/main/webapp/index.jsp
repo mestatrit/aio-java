@@ -9,6 +9,7 @@
 <head>
 <title>影像流历史库查询系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="images/history_query.ico" />
 <link rel="stylesheet" href="css/default_style.css" />
 <script type="text/javascript" src="js/jquery_1.6.4/jquery-1.6.4.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
