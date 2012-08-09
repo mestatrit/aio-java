@@ -67,3 +67,7 @@ function getContentHeight() {
 	return ContentHeight;
 }
 
+function submitByFormId(formid) {
+	var form = $("#" + formid);
+	form.submit();
+}
