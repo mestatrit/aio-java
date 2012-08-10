@@ -48,7 +48,7 @@ public class F9904Controller extends BaseController {
 		log.debug("-----------------Method-gotoSystemFunctionPage------------------------");
 		
 		// 跳转到系统功能首页
-		return "pages/f9904-j-0";
+		return "redirect:/f9904-s-1.do";
 	}
 	
 	/**
@@ -81,7 +81,7 @@ public class F9904Controller extends BaseController {
 		PageUtils<TblSysSysfun> pageUtils = new PageUtils<TblSysSysfun>();
 		pageUtils.setPageQuery(request, pageQuery);
 		
-		return "pages/f9904-j-1";
+		return "pages/f9904-j-0";
 	}
 	
 	/**
@@ -97,7 +97,7 @@ public class F9904Controller extends BaseController {
 		pageQuery = sysFuncService.pageQuery(pageQuery);
 		pageUtils.setPageQuery(request, pageQuery);
 		
-		return "pages/f9904-j-1";
+		return "pages/f9904-j-0";
 	}
 	
 	@RequestMapping("/f9904-s-3")
