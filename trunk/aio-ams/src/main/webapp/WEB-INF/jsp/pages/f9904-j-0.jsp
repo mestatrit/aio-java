@@ -47,6 +47,39 @@
 					<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
 				</div>
 			</form>
+			<hr />
+			<form id="f9904-f-1" action="f9904-s-2.do" method="post">
+				<table class="queryResult">
+					<thead>
+						<tr>
+							<td colspan="3"></td>
+						</tr>
+						<tr>
+							<th><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
+							<th>功能代码</th>
+							<th>功能名称</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:if test="${pageQuery.totalSize == 0}">
+							<tr>
+								<td colspan="3" nowrap="nowrap">查询无记录.</td>
+							</tr>
+						</c:if>
+						<c:if test="${pageQuery != null}">
+							<c:if test="${pageQuery.totalSize != 0}">
+								<c:forEach items="${pageQuery.pagedata}" var="sysfunc">
+									<tr>
+										<td nowrap="nowrap" width="10%"><input name="mid" type="checkbox" value="${sysfunc.sfId }" /></td>
+										<td nowrap="nowrap">${sysfunc.sfFunctionId }</td>
+										<td nowrap="nowrap">${sysfunc.sfFunctionName }</td>
+									</tr>
+								</c:forEach>
+							</c:if>
+						</c:if>
+					</tbody>
+				</table>
+			</form>
 		</div>
 		<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 	</div>
