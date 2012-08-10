@@ -23,7 +23,7 @@
 	<j:PageMenu contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 	<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
   	 	
-     <div class="middle">
+    <div class="middle">
         <div class="middle_left">
             <div class="middle_left_top">
             	<div class="dashboardpanel">

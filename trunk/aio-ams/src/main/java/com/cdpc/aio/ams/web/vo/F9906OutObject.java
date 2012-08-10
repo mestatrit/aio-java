@@ -1,8 +1,8 @@
 package com.cdpc.aio.ams.web.vo;
 
-import com.cdpc.aio.ams.web.po.TblSysSysrol;
+import com.cdpc.aio.ams.web.po.TblSysUsrinf;
 
-public class F9905OutObject {
+public class F9906OutObject {
 
 	// 保存成功标记
 	private boolean saveSuccess = false;
@@ -11,7 +11,9 @@ public class F9905OutObject {
 	// 错误消息
 	private String errorMessage = null;
 
-	private TblSysSysrol tblSysSysrol = null;
+	private TblSysUsrinf tblSysUsrinf = null;
+	
+	private String userRole = null;
 
 	public boolean isSaveSuccess() {
 		return saveSuccess;
@@ -37,12 +39,20 @@ public class F9905OutObject {
 		this.errorMessage = errorMessage;
 	}
 
-	public TblSysSysrol getTblSysSysrol() {
-		return tblSysSysrol;
+	public TblSysUsrinf getTblSysUsrinf() {
+		return tblSysUsrinf;
 	}
 
-	public void setTblSysSysrol(TblSysSysrol tblSysSysrol) {
-		this.tblSysSysrol = tblSysSysrol;
+	public void setTblSysUsrinf(TblSysUsrinf tblSysUsrinf) {
+		this.tblSysUsrinf = tblSysUsrinf;
+	}
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
 	}
 
 }
