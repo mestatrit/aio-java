@@ -49,7 +49,7 @@ public class F9906Controller extends BaseController {
 		log.debug("-----------------Method-gotoSystemUser------------------------");
 		
 		// 跳转到系统用户首页
-		return "pages/f9906-j-0";
+		return "redirect:/f9906-s-1.do";
 	}
 	
 	/**
@@ -80,7 +80,7 @@ public class F9906Controller extends BaseController {
 		PageUtils<TblSysUsrinf> pageUtils = new PageUtils<TblSysUsrinf>();
 		pageUtils.setPageQuery(request, pageQuery);
 		
-		return "pages/f9906-j-1";
+		return "pages/f9906-j-0";
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class F9906Controller extends BaseController {
 		pageQuery = sysUserService.pageQuery(pageQuery);
 		pageUtils.setPageQuery(request, pageQuery);
 		
-		return "pages/f9906-j-1";
+		return "pages/f9906-j-0";
 	}
 	
 	@RequestMapping("/f9906-s-3")

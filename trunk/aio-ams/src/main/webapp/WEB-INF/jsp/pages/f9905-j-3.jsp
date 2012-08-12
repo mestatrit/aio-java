@@ -17,9 +17,14 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/pageQuery.js"></script>
-<script type="text/javascript" src="js/pages/f9904-j-5.js"></script>
+<script type="text/javascript" src="js/pages/f9905-j-3.js"></script>
+<script type="text/javascript" src="js/dtree_checkbox/dtree.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
+	$(document).ready(function() {
+		// binds form submission and fields to the validation engine
+		$("#f9905-f-3").validationEngine();
+	});
 </script>
 </head>
 
@@ -30,55 +35,31 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
+			<form id="f9905-f-3" action="f9905-s-4.do" method="post">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tbody>
-				<tr>
-					<th width="50%">功能代码</th>
-					<td>${f9904OutObject.tblSysSysfun.sfFunctionId }</td>
-				</tr>
-				<tr>
-					<th>功能名称</th>
-					<td>${f9904OutObject.tblSysSysfun.sfFunctionName }</td>
-				</tr>
-				<tr>
-					<th>上级功能</th>
-					<td>${f9904OutObject.tblSysSysfun.sfParentId }</td>
-				</tr>
-				<tr>
-					<th>功能链接</th>
-					<td>${f9904OutObject.tblSysSysfun.sfTargetUrl }</td>
-				</tr>
-				<tr>
-					<th>按钮链接</th>
-					<td>${f9904OutObject.tblSysSysfun.sfBtnUrl }</td>
-				</tr>
-				<tr>
-					<th>显示序号</th>
-					<td>${f9904OutObject.tblSysSysfun.sfSortFlag }</td>
-				</tr>
-				<tr>
-					<th>功能描述</th>
-					<td>${f9904OutObject.tblSysSysfun.sfDescription }</td>
-				</tr>
-				<tr>
-					<th>是否导航菜单</th>
-					<td><j:PageTranslate table="tbl_sys_sysfun" column="SF_MENU_FLAG" initValue="${f9904OutObject.tblSysSysfun.sfMenuFlag }" /></td>
-				</tr>
-				<tr>
-					<th>是否页面按钮</th>
-					<td><j:PageTranslate table="tbl_sys_sysfun" column="SF_BTN_FLAG" initValue="${f9904OutObject.tblSysSysfun.sfBtnFlag }" /></td>
-				</tr>
-				<tr>
-					<th>支持快捷执行</th>
-					<td><j:PageTranslate table="tbl_sys_sysfun" column="SF_EXECUTBALE" initValue="${f9904OutObject.tblSysSysfun.sfExecutbale }" /></td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<th colspan="2"><a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
-				</tr>
-			</tfoot>
+				<tbody>
+					<tr>
+						<th>角色代码</th>
+						<td><input type="text" id="srRoleId" name="srRoleId" class="validate[required,minSize[1],maxSize[10]]" size="10" /> <span><font color="red">*</font></span></td>
+					</tr>
+					<tr>
+						<th>角色名称</th>
+						<td><input type="text" id="srRoleName" name="srRoleName" class="validate[required,minSize[1],maxSize[20]]" size="20" /> <span><font color="red">*</font></span></td>
+					</tr>
+					<tr>
+						<th>角色权限</th>
+						<td>
+							<j:SystemRightTree checkName="checkedRights" isEdit="false" basePath="<%=basePath%>" contextPath="<%=contextPath%>"/>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="2"><a onclick="if(jQuery('#f9905-f-3').validationEngine('validate')){save('');};" style="cursor:pointer;">保存</a> <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+					</tr>
+				</tfoot>
 			</table>
+			</form>
 		</div>
 		<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 		<j:PageTips />

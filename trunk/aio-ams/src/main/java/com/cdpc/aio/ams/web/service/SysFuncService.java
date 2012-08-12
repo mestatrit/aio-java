@@ -239,6 +239,19 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 	public List getAll() {
 		return tblSysSysfunDAO.searchAll();
 	}
+	
+	/**
+	 * 查询系统所有的菜单及按钮权限
+	 * @return
+	 */
+	public List<TblSysSysfun> selectSystemMenuAndBtn() {
+		log.debug("-----------------Service-SysFuncService------------------------");
+		log.debug("-----------------Method-selectSystemMenuAndBtn------------------------");
+		
+		List<TblSysSysfun> resultList = new ArrayList<TblSysSysfun>();
+		resultList = tblSysSysfunDAO.searchListByHQL("from TblSysSysfun t where t.sfMenuFlag = '1' or t.sfBtnFlag = '1' order by t.sfParentId asc");
+		return resultList;
+	}
 
 	public TblSysSysfunDAO getTblSysSysfunDAO() {
 		return tblSysSysfunDAO;

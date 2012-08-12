@@ -17,9 +17,13 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/pageQuery.js"></script>
-<script type="text/javascript" src="js/pages/f9904-j-5.js"></script>
+<script type="text/javascript" src="js/pages/f9907-j-7.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
+	$(document).ready(function() {
+		// binds form submission and fields to the validation engine
+		$("#f9907-f-7").validationEngine();
+	});
 </script>
 </head>
 
@@ -30,55 +34,34 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<form id="f9907-f-7" action="f9907-s-8.do" method="post">
+		<input type="hidden" id="ovId" name="ovId" value="${f9907OutObject.tblSysOptval.ovId }" />
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tbody>
 				<tr>
-					<th width="50%">功能代码</th>
-					<td>${f9904OutObject.tblSysSysfun.sfFunctionId }</td>
+					<th>选项表名</th>
+					<td><input type="text" id="ovTblName" name="ovTblName" class="validate[required,minSize[1],maxSize[100]]" size="50" value="${f9907OutObject.tblSysOptval.ovTblName }" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
-					<th>功能名称</th>
-					<td>${f9904OutObject.tblSysSysfun.sfFunctionName }</td>
+					<th>选项表名</th>
+					<td><input type="text" id="ovColName" name="ovColName" class="validate[required,minSize[1],maxSize[100]]" size="50" value="${f9907OutObject.tblSysOptval.ovColName }" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
-					<th>上级功能</th>
-					<td>${f9904OutObject.tblSysSysfun.sfParentId }</td>
+					<th>选项标签</th>
+					<td><input type="text" id="ovOptLabel" name="ovOptLabel" class="validate[required,minSize[1],maxSize[100]]" size="50" value="${f9907OutObject.tblSysOptval.ovOptLabel }" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
-					<th>功能链接</th>
-					<td>${f9904OutObject.tblSysSysfun.sfTargetUrl }</td>
-				</tr>
-				<tr>
-					<th>按钮链接</th>
-					<td>${f9904OutObject.tblSysSysfun.sfBtnUrl }</td>
-				</tr>
-				<tr>
-					<th>显示序号</th>
-					<td>${f9904OutObject.tblSysSysfun.sfSortFlag }</td>
-				</tr>
-				<tr>
-					<th>功能描述</th>
-					<td>${f9904OutObject.tblSysSysfun.sfDescription }</td>
-				</tr>
-				<tr>
-					<th>是否导航菜单</th>
-					<td><j:PageTranslate table="tbl_sys_sysfun" column="SF_MENU_FLAG" initValue="${f9904OutObject.tblSysSysfun.sfMenuFlag }" /></td>
-				</tr>
-				<tr>
-					<th>是否页面按钮</th>
-					<td><j:PageTranslate table="tbl_sys_sysfun" column="SF_BTN_FLAG" initValue="${f9904OutObject.tblSysSysfun.sfBtnFlag }" /></td>
-				</tr>
-				<tr>
-					<th>支持快捷执行</th>
-					<td><j:PageTranslate table="tbl_sys_sysfun" column="SF_EXECUTBALE" initValue="${f9904OutObject.tblSysSysfun.sfExecutbale }" /></td>
+					<th>选项值</th>
+					<td><input type="text" id="ovOptValue" name="ovOptValue" class="validate[required,minSize[1],maxSize[100]]" size="50" value="${f9907OutObject.tblSysOptval.ovOptValue }" /> <span><font color="red">*</font></span></td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2"><a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+					<th colspan="2"><a onclick="if(jQuery('#f9907-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;">保存</a> <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
 				</tr>
 			</tfoot>
-			</table>
+		</table>
+		</form>
 		</div>
 		<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 		<j:PageTips />

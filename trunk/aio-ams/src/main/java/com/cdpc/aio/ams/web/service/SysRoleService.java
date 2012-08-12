@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.cdpc.aio.ams.common.exception.AppException;
 import com.cdpc.aio.ams.common.interfaces.BaseService;
+import com.cdpc.aio.ams.common.interfaces.BaseSysRoleService;
 import com.cdpc.aio.ams.common.interfaces.PageQuery;
 import com.cdpc.aio.ams.web.dao.TblSysRolfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysrolDAO;
@@ -20,7 +21,7 @@ import com.cdpc.aio.ams.web.po.TblSysRolfun;
 import com.cdpc.aio.ams.web.po.TblSysSysrol;
 
 @Service
-public class SysRoleService implements BaseService {
+public class SysRoleService implements BaseService, BaseSysRoleService {
 
 	private static Logger log = LoggerFactory.getLogger(SysRoleService.class);
 

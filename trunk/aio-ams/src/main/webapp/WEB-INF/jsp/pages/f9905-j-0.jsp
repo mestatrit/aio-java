@@ -17,12 +17,12 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/pageQuery.js"></script>
-<script type="text/javascript" src="js/pages/f9904-j-1.js"></script>
+<script type="text/javascript" src="js/pages/f9905-j-1.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
 	$(document).ready(function() {
 		// binds form submission and fields to the validation engine
-		$("#f9904-f-0").validationEngine();
+		$("#f9905-f-0").validationEngine();
 	});
 </script>
 </head>
@@ -34,62 +34,63 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-			<form id="f9904-f-0" action="f9904-s-1.do" method="post" class="niceform">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<form id="f9905-f-0" action="f9905-s-1.do" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
 					<tr>
-						<th width="20%">功能代码</th>
-						<td><input type="text" id="sfFunctionId" name="sfFunctionId" class="validate[custom[onlyNumberSp],minSize[1],maxSize[20]]" size="25" /></td>
-						<th width="20%">功能名称</th>
-						<td><input type="text" id="sfFunctionName" name="sfFunctionName" class="validate[maxSize[50]]" size="25" /></td>
+						<th width="20%">角色代码</th>
+						<td><input type="text" id="srRoleId" name="srRoleId" class="validate[maxSize[10]]" size="25" /></td>
+						<th width="20%">角色名称</th>
+						<td><input type="text" id="srRoleName" name="srRoleName" class="validate[maxSize[20]]" size="25" /></td>
 					</tr>
+				</tbody>
+				<tfoot>
 					<tr>
-						<td colspan="4" align="center">
-							<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
-						</td>
+						<th colspan="4">
+							<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9905-f-0').validationEngine('validate')){submitByFormId('f9905-f-0')};" />
+						</th>
 					</tr>
-				</table>
+				</tfoot>
+			</table>
 			</form>
 			<hr />
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td><j:PageButton pageFunctionId="9904" basePath="<%=basePath %>" contextPath="<%=contextPath %>"/></td>
+					<td><j:PageButton pageFunctionId="9905" basePath="<%=basePath %>" contextPath="<%=contextPath %>"/></td>
 				</tr>
 			</table>
 			<hr />
-			<form id="f9904-f-1" action="f9904-s-2.do" method="post">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<thead>
+			<form id="f9905-f-1" action="" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
+						<th>角色代码</th>
+						<th>角色名称</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:if test="${pageQuery.totalSize == 0}">
 						<tr>
-							<td colspan="3"></td>
+							<td colspan="3" nowrap="nowrap">查询无记录.</td>
 						</tr>
-						<tr>
-							<th><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
-							<th>功能代码</th>
-							<th>功能名称</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:if test="${pageQuery.totalSize == 0}">
-							<tr>
-								<td colspan="3" nowrap="nowrap">查询无记录.</td>
-							</tr>
+					</c:if>
+					<c:if test="${pageQuery != null}">
+						<c:if test="${pageQuery.totalSize != 0}">
+							<c:forEach items="${pageQuery.pagedata}" var="sysrole">
+								<tr>
+									<td nowrap="nowrap" width="10%"><input name="mid" type="checkbox" value="${sysrole.srId }" /></td>
+									<td nowrap="nowrap">${sysrole.srRoleId }</td>
+									<td nowrap="nowrap">${sysrole.srRoleName }</td>
+								</tr>
+							</c:forEach>
 						</c:if>
-						<c:if test="${pageQuery != null}">
-							<c:if test="${pageQuery.totalSize != 0}">
-								<c:forEach items="${pageQuery.pagedata}" var="sysfunc">
-									<tr>
-										<td nowrap="nowrap" width="10%"><input name="mid" type="checkbox" value="${sysfunc.sfId }" /></td>
-										<td nowrap="nowrap">${sysfunc.sfFunctionId }</td>
-										<td nowrap="nowrap">${sysfunc.sfFunctionName }</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-						</c:if>
-					</tbody>
-				</table>
-			</form>
+					</c:if>
+				</tbody>
+			</table>
+		</form>
 		</div>
-		<j:PageQuery pageURL="f9904-s-2.do" basePath="<%=basePath%>" contextPath="<%=contextPath%>" />
+		<j:PageQuery pageURL="f9905-s-2.do" basePath="<%=basePath%>" contextPath="<%=contextPath%>" />
 		<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 		<j:PageTips />
 	</div>
