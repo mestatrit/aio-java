@@ -71,3 +71,32 @@ function submitByFormId(formid) {
 	var form = $("#" + formid);
 	form.submit();
 }
+
+//全选或全不选
+function checkAllOrCheckNone() {
+	var checkAllAStr = $("#checkAll").html();
+	if(checkAllAStr == '全选') {
+		$("#checkAll").html('全不选');
+		var mids = document.getElementsByName("mid");
+		for(var i=0; i<mids.length; i++) {
+			if(mids[i].checked) {
+				//do nothing
+			}else{
+				mids[i].checked = "checked";
+			}
+		}
+	}
+	
+	if(checkAllAStr == '全不选') {
+		$("#checkAll").html('全选');
+		var mids = document.getElementsByName("mid");
+		for(var i=0; i<mids.length; i++) {
+			if(mids[i].checked) {
+				mids[i].checked = "";
+				
+			}else{
+				//do nothing
+			}
+		}
+	}
+}
