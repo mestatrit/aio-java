@@ -35,15 +35,10 @@
 
 		<div class=content>
 			<form id="f9904-f-3" action="f9904-s-4.do" method="post">
-			<table width="100%" border="1" cellspacing="0" cellpadding="0">
-				<thead>
-					<tr>
-						<th colspan="2">新增系统功能</th>
-					</tr>
-				</thead>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tbody>
 					<tr>
-						<th>功能代码</th>
+						<th width="40%">功能代码</th>
 						<td><input type="text" id="sfFunctionId" name="sfFunctionId" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[20]]" size="20" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>

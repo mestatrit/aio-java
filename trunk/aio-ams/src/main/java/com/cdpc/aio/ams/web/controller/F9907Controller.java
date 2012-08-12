@@ -46,7 +46,7 @@ public class F9907Controller extends BaseController {
 		log.debug("-----------------Method-gotoSearchPage------------------------");
 		
 		// 跳转到系统选项框管理首页
-		return "pages/f9907-j-0";
+		return "redirect:/f9907-s-1.do";
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class F9907Controller extends BaseController {
 		PageUtils<TblSysOptval> pageUtils = new PageUtils<TblSysOptval>();
 		pageUtils.setPageQuery(request, pageQuery);
 		
-		return "pages/f9907-j-1";
+		return "pages/f9907-j-0";
 	}
 	
 	/**
@@ -101,7 +101,7 @@ public class F9907Controller extends BaseController {
 		pageQuery = sysOptValueService.pageQuery(pageQuery);
 		pageUtils.setPageQuery(request, pageQuery);
 		
-		return "pages/f9907-j-1";
+		return "pages/f9907-j-0";
 	}
 	
 	@RequestMapping("/f9907-s-3")

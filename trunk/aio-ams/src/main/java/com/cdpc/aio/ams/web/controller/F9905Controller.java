@@ -50,7 +50,7 @@ public class F9905Controller extends BaseController {
 		log.debug("-----------------Method-gotoSearchPage------------------------");
 
 		// 跳转到系统角色首页
-		return "pages/f9905-j-0";
+		return "redirect:/f9905-s-1.do";
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class F9905Controller extends BaseController {
 		PageUtils<TblSysSysrol> pageUtils = new PageUtils<TblSysSysrol>();
 		pageUtils.setPageQuery(request, pageQuery);
 
-		return "pages/f9905-j-1";
+		return "pages/f9905-j-0";
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class F9905Controller extends BaseController {
 		pageQuery = sysRoleService.pageQuery(pageQuery);
 		pageUtils.setPageQuery(request, pageQuery);
 
-		return "pages/f9905-j-1";
+		return "pages/f9905-j-0";
 	}
 
 	@RequestMapping("/f9905-s-3")
