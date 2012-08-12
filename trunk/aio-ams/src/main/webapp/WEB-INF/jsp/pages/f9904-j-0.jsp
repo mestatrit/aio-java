@@ -15,12 +15,14 @@
 <script type="text/javascript" src="js/client.js"></script>
 <script type="text/javascript" src="js/EventUtil.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/tips.js"></script>
+<script type="text/javascript" src="js/pageQuery.js"></script>
+<script type="text/javascript" src="js/pages/f9904-j-1.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
 	$(document).ready(function() {
 		// binds form submission and fields to the validation engine
 		$("#f9904-f-0").validationEngine();
-		//submitByFormId('f9904-f-0');
 	});
 </script>
 </head>
@@ -31,25 +33,33 @@
 		<j:PageMenu contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
-		<div class="middle">
+		<div class=content>
 			<form id="f9904-f-0" action="f9904-s-1.do" method="post" class="niceform">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table width="100%" border="1" cellspacing="0" cellpadding="0">
 					<tr>
-						<th width="16%">功能代码</th>
+						<th width="40%">功能代码</th>
 						<td><input type="text" id="sfFunctionId" name="sfFunctionId" class="validate[custom[onlyNumberSp],minSize[1],maxSize[20]]" size="25" /></td>
 					</tr>
 					<tr>
-						<th width="16%">功能名称</th>
+						<th width="40%">功能名称</th>
 						<td><input type="text" id="sfFunctionName" name="sfFunctionName" class="validate[maxSize[50]]" size="25" /></td>
 					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
+						</td>
+					</tr>
 				</table>
-				<div class="button_mun2">
-					<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
-				</div>
 			</form>
 			<hr />
+			<table width="100%" border="1" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><j:PageButton pageFunctionId="9904" basePath="<%=basePath %>" contextPath="<%=contextPath %>"/></td>
+				</tr>
+			</table>
+			<hr />
 			<form id="f9904-f-1" action="f9904-s-2.do" method="post">
-				<table class="queryResult">
+				<table width="100%" border="1" cellspacing="0" cellpadding="0">
 					<thead>
 						<tr>
 							<td colspan="3"></td>
@@ -81,7 +91,9 @@
 				</table>
 			</form>
 		</div>
+		<j:PageQuery pageURL="f9904-s-2.do" basePath="<%=basePath%>" contextPath="<%=contextPath%>" />
 		<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
+		<j:PageTips />
 	</div>
 </body>
 </html>
