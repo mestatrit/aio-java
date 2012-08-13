@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-* { margin:0; padding:0; font-size:12px; list-style-type:none; text-decoration:none; font-family:"宋体", Arial, Helvetica, sans-serif;}
+* { margin:0; padding:0; font-size:12px; list-style-type:none; text-decoration:none; font-family:"微软雅黑";}
 html,body { scrollbar-face-color:#dee3e7; /*滚动条3D表面（ThreedFace）的颜色*/scrollbar-highlight-color:#ffffff; /*滚动条3D界面的亮边（ThreedHighlight）颜色*/scrollbar-shadow-color:#dee3e7; /*滚动条3D界面的暗边（ThreedShadow）颜色*/scrollbar-3dlight-color:#d1d7dc; /*滚动条亮边框颜色*/scrollbar-arrow-color:#006699; /*滚动条方向箭头的颜色*/scrollbar-track-color:#efefef; /*滚动条的拖动区域(TrackBar)颜色*/scrollbar-darkshadow-color:#98aab1; /*滚动条暗边框（ThreedDarkShadow）颜色*/}
 img, img a { border:0;}
 h2 { font-size:1.8em;font-weight: normal;margin: 0 0 8px 0;}
@@ -98,15 +98,24 @@ h4 { font-size:1.1em;margin-bottom:4px;}
 .query_result {}
 .query_result thead tr { height:40px; background:#393939; color:#ECECEC;}
 .query_result tbody tr { height:20px; text-align:center;}
-tbody tr.even{ background: #ECECEC;}
-tbody tr.odd{ background: #DEDEDE;}
+.query_result tbody tr.even{ background:#ECECEC;}
+.query_result tbody tr.odd{ background:#DEDEDE;}
 
-.query_criterion {}
+.query_criterion { background:#DEDEDE; padding-top:10px;}
 .query_criterion tbody tr { height:20px; text-align:center;}
-.query_criterion tfoot tr { height:30px;}
-.query_criterion tbody th { background:#DEDEDE;}
-.query_criterion tbody td { background:#FFFFFF;}
+.query_criterion tbody th { text-align:right; background:#DEDEDE; padding-right:10px; color:#393939;} 
+.query_criterion tbody td { text-align:left; background:#DEDEDE; padding-left:10px;}
+.query_criterion tfoot tr { height:20px;}
 .query_criterion tfoot td {}
+.query_criterion tfoot input { margin-right:35px;} 
+
+.insert_table {}
+.insert_table tbody tr { height:20px;}
+.insert_table tbody th { text-align:right;}
+.insert_table tbody td { text-align:left;}
+.insert_table tbody tr.even{ background:#ECECEC;}
+.insert_table tbody tr.odd{ background:#DEDEDE;}
+.insert_table tfoot tr { height:30px; text-align:center;}
 
 .underlined { text-decoration:underline; color:#FFFFFF;}
 /**********************************************************************************************************/
