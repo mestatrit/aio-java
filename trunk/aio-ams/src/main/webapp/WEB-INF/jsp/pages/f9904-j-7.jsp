@@ -36,10 +36,10 @@
 		<div class=content>
 			<form id="f9904-f-7" action="f9904-s-8.do" method="post">
 			<input type="hidden" id="sfId" name="sfId" value="${f9904OutObject.tblSysSysfun.sfId }" /> 
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit_table">
 				<tbody>
 					<tr>
-						<th width="40%">功能代码</th>
+						<th width="35%">功能代码</th>
 						<td><input type="text" id="sfFunctionId" name="sfFunctionId" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[20]]" maxlength="20" size="20" value="${f9904OutObject.tblSysSysfun.sfFunctionId }" readonly="readonly" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>
@@ -81,7 +81,10 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="2"><a onclick="if(jQuery('#f9904-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;">修改</a>  <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+						<td colspan="2">
+							<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9904-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;" />  
+							<input type="button" name="button" value="返回 " onclick="window.history.go(-1);" style="cursor:pointer;" />
+						</td>
 					</tr>
 				</tfoot>
 			</table>

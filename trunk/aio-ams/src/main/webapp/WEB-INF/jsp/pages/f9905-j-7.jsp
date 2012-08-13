@@ -37,24 +37,27 @@
 		<div class=content>
 			<form id="f9905-f-7" action="f9905-s-8.do" method="post">
 			<input type="hidden" id="srId" name="srId" value="${f9905OutObject.tblSysSysrol.srId }" />
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit_table">
 				<tbody>
 					<tr>
-						<th nowrap="nowrap">角色代码</th>
-						<td nowrap="nowrap"><input type="text" id="srRoleId" name="srRoleId" class="validate[required,minSize[1],maxSize[10]]" size="10" value="${f9905OutObject.tblSysSysrol.srRoleId }" /> <span><font color="red">*</font></span></td>
+						<th width="35%">角色代码</th>
+						<td><input type="text" id="srRoleId" name="srRoleId" class="validate[required,minSize[1],maxSize[10]]" size="10" value="${f9905OutObject.tblSysSysrol.srRoleId }" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>
-						<th nowrap="nowrap">角色名称</th>
-						<td nowrap="nowrap"><input type="text" id="srRoleName" name="srRoleName" class="validate[required,minSize[1],maxSize[20]]" size="20" value="${f9905OutObject.tblSysSysrol.srRoleName }" /> <span><font color="red">*</font></span></td>
+						<th>角色名称</th>
+						<td><input type="text" id="srRoleName" name="srRoleName" class="validate[required,minSize[1],maxSize[20]]" size="20" value="${f9905OutObject.tblSysSysrol.srRoleName }" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>
-						<th nowrap="nowrap">角色权限</th>
-						<td nowrap="nowrap"><j:SystemRightTree checkName="checkedRights" isEdit="true" roleId="${f9905OutObject.tblSysSysrol.srRoleId }" basePath="<%=basePath%>" contextPath="<%=contextPath%>" /></td>
+						<th>角色权限</th>
+						<td><j:SystemRightTree checkName="checkedRights" isEdit="true" roleId="${f9905OutObject.tblSysSysrol.srRoleId }" basePath="<%=basePath%>" contextPath="<%=contextPath%>" /></td>
 					</tr>
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="2"><a onclick="if(jQuery('#f9905-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;">修改</a> <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+						<td colspan="2">
+							<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9905-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;" /> 
+							<input type="button" name="button" value="返回" onclick="window.history.go(-1);" style="cursor:pointer;" />
+						</td>
 					</tr>
 				</tfoot>
 			</table>

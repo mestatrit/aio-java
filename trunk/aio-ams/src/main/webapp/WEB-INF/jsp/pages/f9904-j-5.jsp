@@ -30,10 +30,10 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
 			<tbody>
 				<tr>
-					<th width="50%">功能代码</th>
+					<th width="35%">功能代码</th>
 					<td>${f9904OutObject.tblSysSysfun.sfFunctionId }</td>
 				</tr>
 				<tr>
@@ -75,7 +75,9 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2"><a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+					<td colspan="2">
+						<input type="button" name="button" value="返回 " onclick="window.history.go(-1);" style="cursor:pointer;" />
+					</td>
 				</tr>
 			</tfoot>
 			</table>

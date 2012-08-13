@@ -162,12 +162,14 @@ public class F9905Controller extends BaseController {
 		// 整理权限
 		List<TblSysRolfun> rolefuns = new ArrayList<TblSysRolfun>();
 		List<String> checkedRights = f9905InObject.getCheckedRights();
-		for (int i = 0; i < checkedRights.size(); i++) {
-			String funid = checkedRights.get(i);
-			TblSysRolfun t = new TblSysRolfun();
-			t.setRfRoleId(f9905InObject.getSrRoleId());
-			t.setRfFunctionId(funid);
-			rolefuns.add(t);
+		if(checkedRights != null) {
+			for (int i = 0; i < checkedRights.size(); i++) {
+				String funid = checkedRights.get(i);
+				TblSysRolfun t = new TblSysRolfun();
+				t.setRfRoleId(f9905InObject.getSrRoleId());
+				t.setRfFunctionId(funid);
+				rolefuns.add(t);
+			}
 		}
 
 		// 保存
@@ -309,12 +311,14 @@ public class F9905Controller extends BaseController {
 		// 整理权限
 		List<TblSysRolfun> rolefuns = new ArrayList<TblSysRolfun>();
 		List<String> checkedRights = f9905InObject.getCheckedRights();
-		for (int i = 0; i < checkedRights.size(); i++) {
-			String funid = checkedRights.get(i);
-			TblSysRolfun t = new TblSysRolfun();
-			t.setRfRoleId(f9905InObject.getSrRoleId());
-			t.setRfFunctionId(funid);
-			rolefuns.add(t);
+		if(checkedRights != null) {
+			for (int i = 0; i < checkedRights.size(); i++) {
+				String funid = checkedRights.get(i);
+				TblSysRolfun t = new TblSysRolfun();
+				t.setRfRoleId(f9905InObject.getSrRoleId());
+				t.setRfFunctionId(funid);
+				rolefuns.add(t);
+			}
 		}
 
 		// 更新记录

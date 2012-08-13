@@ -47,7 +47,7 @@
 					<tfoot>
 						<tr>
 							<td colspan="4" align="right">
-								<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
+								<input type="button" name="button" value="查找 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
 							</td>
 						</tr>
 					</tfoot>
