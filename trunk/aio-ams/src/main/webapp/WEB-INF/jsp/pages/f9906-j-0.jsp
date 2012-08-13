@@ -61,7 +61,7 @@
 			</table>
 			<hr />
 			<form id="f9906-f-1" action="" method="post">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="query_result">
 			<thead>
 				<tr>
 					<th><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
@@ -78,8 +78,8 @@
 				</c:if>
 				<c:if test="${pageQuery != null}">
 					<c:if test="${pageQuery.totalSize != 0}">
-						<c:forEach items="${pageQuery.pagedata}" var="sysuser">
-							<tr>
+						<c:forEach items="${pageQuery.pagedata}" var="sysuser" varStatus="status">
+							<tr <c:if test="${status.index % 2 == 0}">class="even"</c:if><c:if test="${status.index % 2 != 0}">class="odd"</c:if>>
 								<td nowrap="nowrap" width="10%"><input name="mid" type="checkbox" value="${sysuser.uiId }" /></td>
 								<td nowrap="nowrap">${sysuser.uiUserId }</td>
 								<td nowrap="nowrap">${sysuser.uiLstIpAddress }</td>

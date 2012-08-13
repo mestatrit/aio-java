@@ -57,11 +57,8 @@
 			</table>
 			<hr />
 			<form id="f9904-f-1" action="f9904-s-2.do" method="post">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="query_result">
 					<thead>
-						<tr>
-							<td colspan="3"></td>
-						</tr>
 						<tr>
 							<th><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
 							<th>功能代码</th>
@@ -71,16 +68,16 @@
 					<tbody>
 						<c:if test="${pageQuery.totalSize == 0}">
 							<tr>
-								<td colspan="3" nowrap="nowrap">查询无记录.</td>
+								<td colspan="3">查询无记录.</td>
 							</tr>
 						</c:if>
 						<c:if test="${pageQuery != null}">
 							<c:if test="${pageQuery.totalSize != 0}">
-								<c:forEach items="${pageQuery.pagedata}" var="sysfunc">
-									<tr>
-										<td nowrap="nowrap" width="10%"><input name="mid" type="checkbox" value="${sysfunc.sfId }" /></td>
-										<td nowrap="nowrap">${sysfunc.sfFunctionId }</td>
-										<td nowrap="nowrap">${sysfunc.sfFunctionName }</td>
+								<c:forEach items="${pageQuery.pagedata}" var="sysfunc" varStatus="status">
+									<tr <c:if test="${status.index % 2 == 0}">class="even"</c:if><c:if test="${status.index % 2 != 0}">class="odd"</c:if>>
+										<td width="10%"><input name="mid" type="checkbox" value="${sysfunc.sfId }" /></td>
+										<td>${sysfunc.sfFunctionId }</td>
+										<td>${sysfunc.sfFunctionName }</td>
 									</tr>
 								</c:forEach>
 							</c:if>

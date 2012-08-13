@@ -39,7 +39,7 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tbody>
 					<tr>
-						<th>角色代码</th>
+						<th width="40%">角色代码</th>
 						<td><input type="text" id="srRoleId" name="srRoleId" class="validate[required,minSize[1],maxSize[10]]" size="10" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>

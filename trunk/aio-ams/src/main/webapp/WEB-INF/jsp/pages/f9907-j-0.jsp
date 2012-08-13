@@ -67,14 +67,14 @@
 			</table>
 			<hr />
 			<form id="f9907-f-1" action="" method="post">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="query_result">
 			<thead>
 				<tr>
-					<th nowrap="nowrap"><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
-					<th nowrap="nowrap">选项表名</th>
-					<th nowrap="nowrap">选项列名</th>
-					<th nowrap="nowrap">选项标签</th>
-					<th nowrap="nowrap">选项值</th>
+					<th><a href="#" target="_self" class="underlined" id="checkAll" onclick="checkAllOrCheckNone();">全选</a></th>
+					<th>选项表名</th>
+					<th>选项列名</th>
+					<th>选项标签</th>
+					<th>选项值</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -85,13 +85,13 @@
 				</c:if>
 				<c:if test="${pageQuery != null}">
 					<c:if test="${pageQuery.totalSize != 0}">
-						<c:forEach items="${pageQuery.pagedata}" var="sysopt">
-							<tr>
-								<td nowrap="nowrap"><input name="mid" type="checkbox" value="${sysopt.ovId }" /></td>
-								<td nowrap="nowrap">${sysopt.ovTblName }</td>
-								<td nowrap="nowrap">${sysopt.ovColName }</td>
-								<td nowrap="nowrap">${sysopt.ovOptLabel }</td>
-								<td nowrap="nowrap">${sysopt.ovOptValue }</td>
+						<c:forEach items="${pageQuery.pagedata}" var="sysopt" varStatus="status">
+							<tr <c:if test="${status.index % 2 == 0}">class="even"</c:if><c:if test="${status.index % 2 != 0}">class="odd"</c:if>>
+								<td><input name="mid" type="checkbox" value="${sysopt.ovId }" /></td>
+								<td>${sysopt.ovTblName }</td>
+								<td>${sysopt.ovColName }</td>
+								<td>${sysopt.ovOptLabel }</td>
+								<td>${sysopt.ovOptValue }</td>
 							</tr>
 						</c:forEach>
 					</c:if>
