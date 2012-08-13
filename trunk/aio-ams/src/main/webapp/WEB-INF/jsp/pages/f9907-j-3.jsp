@@ -38,20 +38,20 @@
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tbody>
 				<tr>
-					<th nowrap="nowrap">选项表名</th>
-					<td nowrap="nowrap"><input type="text" id="ovTblName" name="ovTblName" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
+					<th width="40%">选项表名</th>
+					<td><input type="text" id="ovTblName" name="ovTblName" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
-					<th nowrap="nowrap">选项列名</th>
-					<td nowrap="nowrap"><input type="text" id="ovColName" name="ovColName" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
+					<th>选项列名</th>
+					<td><input type="text" id="ovColName" name="ovColName" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
-					<th nowrap="nowrap">选项标签</th>
-					<td nowrap="nowrap"><input type="text" id="ovOptLabel" name="ovOptLabel" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
+					<th>选项标签</th>
+					<td><input type="text" id="ovOptLabel" name="ovOptLabel" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
-					<th nowrap="nowrap">选项值</th>
-					<td nowrap="nowrap"><input type="text" id="ovOptValue" name="ovOptValue" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
+					<th>选项值</th>
+					<td><input type="text" id="ovOptValue" name="ovOptValue" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
 				</tr>
 			</tbody>
 			<tfoot>

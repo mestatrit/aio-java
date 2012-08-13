@@ -38,16 +38,16 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tbody>
 					<tr>
-						<th nowrap="nowrap">用户ID</th>
-						<td nowrap="nowrap"><input type="text" id="uiUserId" name="uiUserId" class="validate[required,minSize[1],maxSize[20]]" size="20" /> <span><font color="red">*</font></span></td>
+						<th width="40%">用户ID</th>
+						<td><input type="text" id="uiUserId" name="uiUserId" class="validate[required,minSize[1],maxSize[20]]" size="20" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>
-						<th nowrap="nowrap">用户密码</th>
-						<td nowrap="nowrap"><input type="text" id="uiUserPwd" name="uiUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" size="8" /> <span><font color="red">*</font></span></td>
+						<th>用户密码</th>
+						<td><input type="text" id="uiUserPwd" name="uiUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" size="8" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>
-						<th nowrap="nowrap">用户角色</th>
-						<td nowrap="nowrap"><j:PageSelectAnywhere id="userRoleId" name="userRoleId" dataService="sysRoleService" labelColumn="srRoleName" valueColumn="srRoleId" /> <span><font color="red">*</font></span></td>
+						<th>用户角色</th>
+						<td><j:PageSelectAnywhere id="userRoleId" name="userRoleId" dataService="sysRoleService" labelColumn="srRoleName" valueColumn="srRoleId" /> <span><font color="red">*</font></span></td>
 					</tr>
 				</tbody>
 				<tfoot>
