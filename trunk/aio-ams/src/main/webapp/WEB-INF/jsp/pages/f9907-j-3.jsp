@@ -35,10 +35,10 @@
 
 		<div class=content>
 		<form id="f9907-f-3" action="f9907-s-4.do" method="post">
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="insert_table">
 			<tbody>
 				<tr>
-					<th width="40%">选项表名</th>
+					<th width="35%">选项表名</th>
 					<td><input type="text" id="ovTblName" name="ovTblName" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
@@ -57,8 +57,8 @@
 			<tfoot>
 				<tr>
 					<th colspan="2">
-					<a onclick="if(jQuery('#f9907-f-3').validationEngine('validate')){save('');};" style="cursor:pointer;">保存</a>
-					<a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a>
+						<input type="button" name="button" value="保存 " onclick="if(jQuery('#f9907-f-3').validationEngine('validate')){save('');};" style="cursor:pointer;" />
+						<input type="button" name="button" value="返回" onclick="window.history.go(-1);" style="cursor:pointer;" />
 					</th>
 				</tr>
 			</tfoot>

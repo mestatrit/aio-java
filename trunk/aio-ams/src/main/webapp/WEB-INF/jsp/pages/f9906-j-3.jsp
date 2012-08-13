@@ -35,10 +35,10 @@
 
 		<div class=content>
 			<form id="f9906-f-3" action="f9906-s-4.do" method="post">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="insert_table">
 				<tbody>
 					<tr>
-						<th width="40%">用户ID</th>
+						<th width="35%">用户ID</th>
 						<td><input type="text" id="uiUserId" name="uiUserId" class="validate[required,minSize[1],maxSize[20]]" size="20" /> <span><font color="red">*</font></span></td>
 					</tr>
 					<tr>
@@ -52,7 +52,10 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="2"><a onclick="if(jQuery('#f9906-f-3').validationEngine('validate')){save('');};" style="cursor:pointer;">保存</a>  <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+						<td colspan="2">
+							<input type="button" name="button" value="保存 " onclick="if(jQuery('#f9906-f-3').validationEngine('validate')){save('');};" style="cursor:pointer;" />  
+							<input type="button" name="button" value="返回" onclick="window.history.go(-1);" style="cursor:pointer;" />
+						</td>
 					</tr>
 				</tfoot>
 			</table>

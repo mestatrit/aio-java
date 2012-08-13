@@ -36,24 +36,27 @@
 		<div class=content>
 		<form id="f9906-f-7" action="f9906-s-8.do" method="post">
 		<input type="hidden" id="uiId" name="uiId" value="${f9906OutObject.tblSysUsrinf.uiId }" />
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit_table">
 			<tbody>
 				<tr>
-					<th nowrap="nowrap">用户ID</th>
-					<td nowrap="nowrap"><input type="text" id="uiUserId" name="uiUserId" size="20" value="${f9906OutObject.tblSysUsrinf.uiUserId }" readonly="readonly" /></td>
+					<th width="35%">用户ID</th>
+					<td><input type="text" id="uiUserId" name="uiUserId" size="20" value="${f9906OutObject.tblSysUsrinf.uiUserId }" readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<th nowrap="nowrap">用户密码</th>
-					<td nowrap="nowrap"><input type="text" id="uiUserPwd" name="uiUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" value="${f9906OutObject.tblSysUsrinf.uiUserPwd }" size="8" readonly="readonly"/></td>
+					<th>用户密码</th>
+					<td><input type="text" id="uiUserPwd" name="uiUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" value="${f9906OutObject.tblSysUsrinf.uiUserPwd }" size="8" readonly="readonly"/></td>
 				</tr>
 				<tr>
-					<th nowrap="nowrap">用户角色</th>
-					<td nowrap="nowrap"><j:PageSelectAnywhere id="userRoleId" name="userRoleId" dataService="sysRoleService" labelColumn="srRoleName" valueColumn="srRoleId" initValue="${f9906OutObject.userRole }" /> <span><font color="red">*</font></span></td>
+					<th>用户角色</th>
+					<td><j:PageSelectAnywhere id="userRoleId" name="userRoleId" dataService="sysRoleService" labelColumn="srRoleName" valueColumn="srRoleId" initValue="${f9906OutObject.userRole }" /> <span><font color="red">*</font></span></td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2"><a onclick="if(jQuery('#f9906-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;">修改</a>  <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+					<td colspan="2">
+						<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9906-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;" />  
+						<input type="button" name="button" value="修改 " onclick="window.history.go(-1);" style="cursor:pointer;" />
+					</td>
 				</tr>
 			</tfoot>
 		</table>

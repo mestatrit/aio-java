@@ -30,28 +30,30 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
 		<tbody>
 			<tr>
-				<th nowrap="nowrap">选项表名</th>
-				<td nowrap="nowrap">${f9907OutObject.tblSysOptval.ovTblName }</td>
+				<th width="35%">选项表名</th>
+				<td>${f9907OutObject.tblSysOptval.ovTblName }</td>
 			</tr>
 			<tr>
-				<th nowrap="nowrap">选项列名</th>
-				<td nowrap="nowrap">${f9907OutObject.tblSysOptval.ovColName }</td>
+				<th>选项列名</th>
+				<td>${f9907OutObject.tblSysOptval.ovColName }</td>
 			</tr>
 			<tr>
-				<th nowrap="nowrap">选项标签</th>
-				<td nowrap="nowrap">${f9907OutObject.tblSysOptval.ovOptLabel }</td>
+				<th>选项标签</th>
+				<td>${f9907OutObject.tblSysOptval.ovOptLabel }</td>
 			</tr>
 			<tr>
-				<th nowrap="nowrap">选项值</th>
-				<td nowrap="nowrap">${f9907OutObject.tblSysOptval.ovOptValue }</td>
+				<th>选项值</th>
+				<td>${f9907OutObject.tblSysOptval.ovOptValue }</td>
 			</tr>
 		</tbody>
 		<tfoot>
 			<tr>
-				<th colspan="2"><a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+				<td colspan="2">
+					<input type="button" name="button" value="返回 " onclick="window.history.go(-1);" style="cursor:pointer;" />
+				</td>
 			</tr>
 		</tfoot>
 		</table>

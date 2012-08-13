@@ -36,10 +36,10 @@
 		<div class=content>
 		<form id="f9907-f-7" action="f9907-s-8.do" method="post">
 		<input type="hidden" id="ovId" name="ovId" value="${f9907OutObject.tblSysOptval.ovId }" />
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit_table">
 			<tbody>
 				<tr>
-					<th>选项表名</th>
+					<th width="35%">选项表名</th>
 					<td><input type="text" id="ovTblName" name="ovTblName" class="validate[required,minSize[1],maxSize[100]]" size="50" value="${f9907OutObject.tblSysOptval.ovTblName }" /> <span><font color="red">*</font></span></td>
 				</tr>
 				<tr>
@@ -57,7 +57,10 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<th colspan="2"><a onclick="if(jQuery('#f9907-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;">保存</a> <a onclick="window.history.go(-1);" style="cursor:pointer;">返回</a></th>
+					<td colspan="2">
+						<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9907-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;" /> 
+						<input type="button" name="button" value="返回 " onclick="window.history.go(-1);" style="cursor:pointer;" />
+					</td>
 				</tr>
 			</tfoot>
 		</table>
