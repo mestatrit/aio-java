@@ -34,19 +34,23 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-			<form id="f9904-f-0" action="f9904-s-1.do" method="post" class="niceform">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<th width="20%">功能代码</th>
-						<td><input type="text" id="sfFunctionId" name="sfFunctionId" class="validate[custom[onlyNumberSp],minSize[1],maxSize[20]]" size="25" /></td>
-						<th width="20%">功能名称</th>
-						<td><input type="text" id="sfFunctionName" name="sfFunctionName" class="validate[maxSize[50]]" size="25" /></td>
-					</tr>
-					<tr>
-						<td colspan="4" align="center">
-							<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
-						</td>
-					</tr>
+			<form id="f9904-f-0" action="f9904-s-1.do" method="post">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="query_criterion">
+					<tbody>
+						<tr>
+							<th width="20%">功能代码</th>
+							<td><input type="text" id="sfFunctionId" name="sfFunctionId" class="validate[custom[onlyNumberSp],minSize[1],maxSize[20]]" size="25" /></td>
+							<th width="20%">功能名称</th>
+							<td><input type="text" id="sfFunctionName" name="sfFunctionName" class="validate[maxSize[50]]" size="25" /></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4" align="center">
+								<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9904-f-0').validationEngine('validate')){submitByFormId('f9904-f-0')};" />
+							</td>
+						</tr>
+					</tfoot>
 				</table>
 			</form>
 			<hr />
