@@ -35,7 +35,7 @@
 
 		<div class=content>
 			<form id="f9905-f-0" action="f9905-s-1.do" method="post">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="query_criterion">
 				<tbody>
 					<tr>
 						<th width="20%">角色代码</th>
@@ -46,9 +46,9 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="4">
+						<td colspan="4" align="center">
 							<input type="button" name="button" id="button" value="搜索 " onclick="if(jQuery('#f9905-f-0').validationEngine('validate')){submitByFormId('f9905-f-0')};" />
-						</th>
+						</td>
 					</tr>
 				</tfoot>
 			</table>

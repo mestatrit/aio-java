@@ -95,11 +95,18 @@ h4 { font-size:1.1em;margin-bottom:4px;}
 /**********************************************************************************************************/
 
 /**********************************************************************************************************/
-.query_result { }
+.query_result {}
 .query_result thead tr { height:40px; background:#393939; color:#ECECEC;}
 .query_result tbody tr { height:20px; text-align:center;}
-tbody tr.even{ background-color: #ECECEC;}
-tbody tr.odd{ background-color: #DEDEDE;}
+tbody tr.even{ background: #ECECEC;}
+tbody tr.odd{ background: #DEDEDE;}
+
+.query_criterion {}
+.query_criterion tbody tr { height:20px; text-align:center;}
+.query_criterion tfoot tr { height:30px;}
+.query_criterion tbody th { background:#DEDEDE;}
+.query_criterion tbody td { background:#FFFFFF;}
+.query_criterion tfoot td {}
 
 .underlined { text-decoration:underline; color:#FFFFFF;}
 /**********************************************************************************************************/
