@@ -19,10 +19,10 @@ function m2(fid, pfid) {
 //退出应用
 function logout() {
 	if(client.browser.chrome != 0) {
-		window.location.href = baseUrl + "f9902.do";
+		window.location.href = baseUrl + "f9902-s-1.do";
 	} else {
 		if (confirm("您确定要离开影像流历史库查询系统？")) {
-			window.location.href = baseUrl + "f9902.do";
+			window.location.href = baseUrl + "f9902-s-1.do";
 		}
 	}
 }
