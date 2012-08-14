@@ -36,8 +36,8 @@ public class F9999Controller extends BaseController {
 	
 	@RequestMapping("/f9999.do")
 	public String gotoChangepwd(HttpServletRequest request, HttpServletResponse response) throws AppException {
-		log.debug("-----------------Controller-F9902Controller------------------------");
-		log.debug("-----------------Method-gotoSystemUser------------------------");
+		log.debug("-----------------Controller-F9999Controller------------------------");
+		log.debug("-----------------Method-gotoChangepwd------------------------");
 		
 		// 跳转到修改密码首页
 		return "pages/f9999-j-0";
@@ -45,7 +45,7 @@ public class F9999Controller extends BaseController {
 	
 	@RequestMapping("/f9999-s-1.do")
 	public void changeUserPassword(F9999InObject f9999InObject, HttpServletRequest request, HttpServletResponse response) throws AppException {
-		log.debug("-----------------Controller-F9902Controller------------------------");
+		log.debug("-----------------Controller-F9999Controller------------------------");
 		log.debug("-----------------Method-changeUserPassword------------------------");
 		log.debug("修改用户密码操作");
 		

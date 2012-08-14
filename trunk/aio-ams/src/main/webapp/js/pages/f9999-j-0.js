@@ -1,4 +1,6 @@
 function save(baseUrl) {
+	show_screen_shade();
+	
 	$.ajax (
 		{
 			type : "POST",

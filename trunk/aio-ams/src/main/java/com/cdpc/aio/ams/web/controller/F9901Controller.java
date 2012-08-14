@@ -166,14 +166,6 @@ public class F9901Controller extends BaseController {
 		
 		return "pages/f9901-j-0";
 	}
-	
-	@RequestMapping("/f9901-s-1.do")
-	public String toMainPage(HttpServletRequest request, HttpServletResponse response) throws AppException {
-		log.debug("-----------------Controller-F9901Controller------------------------");
-		log.debug("-----------------Method-toMainPage------------------------");
-		log.debug("跳转到首页");
-		return "pages/f9901-j-0";
-	}
 
 	public TblSysUsrinfDAO getTblSysUsrinfDAO() {
 		return tblSysUsrinfDAO;
