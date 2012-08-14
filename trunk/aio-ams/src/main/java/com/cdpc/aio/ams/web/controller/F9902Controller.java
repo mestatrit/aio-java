@@ -33,11 +33,11 @@ public class F9902Controller extends BaseController {
 	}
 	
 	@RequestMapping("/f9902-s-1.do")
-	public String gotoChangepwd(HttpServletRequest request, HttpServletResponse response) throws AppException {
+	public String gotoQuitSystemPage(HttpServletRequest request, HttpServletResponse response) throws AppException {
 		log.debug("-----------------Controller-F9902Controller------------------------");
-		log.debug("-----------------Method-gotoSystemUser------------------------");
+		log.debug("-----------------Method-gotoQuitSystemPage------------------------");
 		
-		// 跳转到系统首页
+		// 跳转到退出系统页面
 		return "pages/f9902-j-0";
 	}
 	
