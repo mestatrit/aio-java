@@ -252,6 +252,27 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 		resultList = tblSysSysfunDAO.searchListByHQL("from TblSysSysfun t where t.sfMenuFlag = '1' or t.sfBtnFlag = '1' order by t.sfParentId asc");
 		return resultList;
 	}
+	
+	/**
+	 * 根据子功能id查询父功能id
+	 * @param childFid
+	 * @return
+	 * @throws AppException 
+	 */
+	@Override
+	public TblSysSysfun selectParentFunction(String childFid) throws AppException {
+		log.debug("-----------------Service-SysFuncService------------------------");
+		log.debug("-----------------Method-selectParentFunction------------------------");
+		
+		TblSysSysfun tblSysSysfun = queryByFunctionId(childFid);
+		if("0".equals(tblSysSysfun.getSfParentId())) {
+			return tblSysSysfun;
+		} else {
+			tblSysSysfun = selectParentFunction(tblSysSysfun.getSfParentId());
+		}
+		
+		return tblSysSysfun;
+	}
 
 	public TblSysSysfunDAO getTblSysSysfunDAO() {
 		return tblSysSysfunDAO;

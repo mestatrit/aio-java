@@ -25,6 +25,7 @@ import com.cdpc.aio.ams.web.dao.TblSysUsrrolDAO;
 import com.cdpc.aio.ams.web.po.TblSysSysfun;
 import com.cdpc.aio.ams.web.po.TblSysUsrinf;
 import com.cdpc.aio.ams.web.service.SysUserService;
+import com.cdpc.common.codec.EncryptUtils;
 
 
 /**
@@ -93,9 +94,10 @@ public class F9901Controller extends BaseController {
 		}
 		
 		// 2.用户密码不正确
-		String encodedPassword = tblSysUsrinf.getUiUserPwd();
-		if(StringUtils.isNotEmpty(encodedPassword)) {
-			if(!StringUtils.equals(encodedPassword, password)) {
+		String encodePassword = EncryptUtils.passwordMd52Hex(password);
+		String rightPassword = tblSysUsrinf.getUiUserPwd();
+		if(StringUtils.isNotEmpty(rightPassword)) {
+			if(!StringUtils.equals(rightPassword, encodePassword)) {
 				log.warn("password is not correct");
 				request.setAttribute("errorMessage", "password is not correct");
 				return "forward:index.jsp";
@@ -113,8 +115,6 @@ public class F9901Controller extends BaseController {
 		
 		request.getSession().setAttribute("sysuser", systemUser);
 		request.getSession().setAttribute("userfuns", userfuns);
-		List<TblSysSysfun> firstMenu = sysUserService.getUserFirstLevelMenu(systemUser);
-		request.getSession().setAttribute("firstMenu", firstMenu);
 		
 		//===========================================================================================
 		// 修改用户登录标记,记录日志

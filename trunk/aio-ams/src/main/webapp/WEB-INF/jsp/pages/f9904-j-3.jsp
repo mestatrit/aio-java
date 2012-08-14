@@ -47,7 +47,9 @@
 					</tr>
 					<tr>
 						<th>上级功能</th>
-						<td><input type="text" id="sfParentId" name="sfParentId" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[20]]" size="20" /> <span><font color="red">*</font></span></td>
+						<td>
+							<j:PageSelectAnywhere id="sfParentId" name="sfParentId" dataService="sysFuncService" labelColumn="sfFunctionId" valueColumn="sfFunctionId" /><span><font color="red">*</font></span>
+						</td>
 					</tr>
 					<tr>
 						<th>功能链接</th>

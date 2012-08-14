@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>com.cdpc.aio</groupId>
 			<artifactId>ams-common</artifactId>
-			<version>1.0.4</version>
+			<version>1.0.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.cdpc.aio</groupId>
@@ -38,12 +38,17 @@
 		<dependency>
 			<groupId>com.cdpc.aio</groupId>
 			<artifactId>ams-jxtl</artifactId>
-			<version>1.0.17</version>
+			<version>1.0.21</version>
 		</dependency>
 		<dependency>
 			<groupId>com.cdpc.common</groupId>
 			<artifactId>json</artifactId>
 			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cdpc.common</groupId>
+			<artifactId>codec</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 	<!-- ==================================================== -->
 	<!-- ==================================================== -->
@@ -180,6 +185,11 @@
 			</exclusions>
 		</dependency>
 	<!-- ==================================================== -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
