@@ -1,5 +1,6 @@
 package com.cdpc.aio.ams.web.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,9 +116,11 @@ public class F9901Controller extends BaseController {
 		systemUser.setTblSysUsrinf(tblSysUsrinf);
 		systemUser.setUserfuns(userfuns);
 		
-		request.getSession().setAttribute("sysuser", systemUser);
-		request.getSession().setAttribute("userfuns", userfuns);
+		String loginTime = DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
 		
+		request.getSession().setAttribute("userfuns", userfuns);
+		request.getSession().setAttribute("sysuser", systemUser);
+		request.getSession().setAttribute("loginTime", loginTime);
 		//===========================================================================================
 		// 修改用户登录标记,记录日志
 		sysUserService.changeUserStatus(systemUser, request, Constants.LOGIN_FLAG);

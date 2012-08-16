@@ -29,9 +29,8 @@
             	<div class="dashboardpanel">
                     <h3><img width="16" height="15" src="images/ico_1.gif" />用户信息</h3>
                     <div class="dashboardpanelcontent">
-                        <span>用户姓名: Stephen wang</span><br/>
-                        <span>所属科室: 授权科</span><br/>
-                        <span>登录时间: 2012-7-18 12:23:10</span><br/>
+                        <span>用户姓名: ${sysuser.username}</span><br/>
+                        <span>登录时间: ${loginTime}</span><br/>
                         <div class="clear"></div>
                     </div>
             	</div>
@@ -40,15 +39,7 @@
             	<div class="dashboardpanel">
                     <h3><img width="16" height="15" src="images/ico_2.gif" />任务提醒</h3>
                     <div class="dashboardpanelcontent">
-                        <a>2012-07-20 完成任务A</a><br/>
-                        <a>2012-07-21 完成任务B</a><br/>
-                        <a>2012-07-22 完成任务C</a><br/>
-                        <a>2012-07-22 完成任务D</a><br/>
-                        <a>2012-07-22 完成任务E</a><br/>
-                        <a>2012-07-22 完成任务F</a><br/>
-                        <a>2012-07-22 完成任务G</a><br/>
-                        <a>2012-07-22 完成任务H</a><br/>
-                        <a>2012-07-22 完成任务I</a><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
                         <div class="clear"></div>
                     </div>
             	</div>
@@ -59,16 +50,7 @@
         	<div class="dashboardpanel">
                 <h3><img width="16" height="15" src="images/ico_3.gif" />系统公告</h3>
                 <div class="dashboardpanelcontent">
-                	<a>远离非法集资 建设美好生活</a><br/>
-                    <a>上海银行拟推出为百岁老人免费送养老金等服务</a><br/>
-                    <a>1亿元财政资金撬动30亿元“外贸通”</a><br/>
-                    <a>上海银行打造6家养老金特色支行</a><br/>
-                    <a>五项举措打造养老金融服务上海银行创建“敬老文明号”</a><br/>
-                    <a>上海银行30亿专项额度助中小外贸企业融资</a><br/>
-                    <a>惠誉近期确认上海银行评级</a><br/>
-                    <a>老人遗忘借记卡  银行员工送上门</a><br/>
-                    <a>上海银行-苏州乐园“尚乐”信用卡面世</a><br/>
-                    <a>上海银行天津塘沽支行对外营业</a><br/>
+                	<br/><br/><br/><br/><br/><br/><br/><br/>
              		<div class="clear"></div>
              	</div>
             </div>
