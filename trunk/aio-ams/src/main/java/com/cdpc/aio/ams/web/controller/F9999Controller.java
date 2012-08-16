@@ -21,7 +21,8 @@ import com.cdpc.common.codec.EncryptUtils;
 
 /**
  * 
- * 功能点9999控制器
+ * 功能代码：9999
+ * 功能名称：系统密码修改
  * 
  * @author evin.liu
  *

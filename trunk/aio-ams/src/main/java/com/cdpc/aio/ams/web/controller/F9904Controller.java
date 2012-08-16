@@ -29,7 +29,8 @@ import com.cdpc.aio.ams.web.vo.F9904OutObject;
 
 /**
  * 
- * 功能点9904控制器
+ * 功能代码：9904
+ * 功能名称：系统功能菜单管理
  * 
  * @author evin.liu
  *

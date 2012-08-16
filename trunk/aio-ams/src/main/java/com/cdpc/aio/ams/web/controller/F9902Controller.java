@@ -13,7 +13,8 @@ import com.cdpc.aio.ams.common.interfaces.BaseController;
 
 /**
  * 
- * 功能点9902控制器
+ * 功能代码：9902
+ * 功能名称：系统全局跳转
  * 
  * @author evin.liu
  *

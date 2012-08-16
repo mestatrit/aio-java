@@ -30,7 +30,8 @@ import com.cdpc.common.codec.EncryptUtils;
 
 /**
  * 
- * 功能点9901控制器
+ * 功能代码：9901
+ * 功能名称：系统登录
  * 
  * @author evin.liu
  *

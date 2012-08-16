@@ -30,7 +30,8 @@ import com.cdpc.aio.ams.web.vo.F9906OutObject;
 
 /**
  * 
- * 功能点9906控制器
+ * 功能代码：9906
+ * 功能名称：系统用户管理
  * 
  * @author evin.liu
  *

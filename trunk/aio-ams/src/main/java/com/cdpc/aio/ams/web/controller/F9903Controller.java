@@ -20,7 +20,8 @@ import com.cdpc.aio.ams.web.service.SysFuncService;
 
 /**
  * 
- * 功能点9903控制器
+ * 功能代码：9903
+ * 功能名称：获取下级菜单
  * 
  * @author evin.liu
  *
