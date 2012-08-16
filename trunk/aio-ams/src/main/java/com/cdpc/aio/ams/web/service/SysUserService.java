@@ -3,9 +3,7 @@ package com.cdpc.aio.ams.web.service;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,11 +21,9 @@ import com.cdpc.aio.ams.common.interfaces.BaseService;
 import com.cdpc.aio.ams.common.interfaces.BaseSysUserService;
 import com.cdpc.aio.ams.common.interfaces.PageQuery;
 import com.cdpc.aio.ams.common.util.SystemUser;
-import com.cdpc.aio.ams.web.dao.TblSysRolfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrinfDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrrolDAO;
-import com.cdpc.aio.ams.web.po.TblSysRolfun;
 import com.cdpc.aio.ams.web.po.TblSysSysfun;
 import com.cdpc.aio.ams.web.po.TblSysUsrinf;
 import com.cdpc.aio.ams.web.po.TblSysUsrrol;
@@ -42,8 +38,6 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	@Autowired
 	private TblSysUsrrolDAO tblSysUsrrolDAO;
 	@Autowired
-	private TblSysRolfunDAO tblSysRolfunDAO;
-	@Autowired
 	private TblSysSysfunDAO tblSysSysfunDAO;
 	
 	/**
@@ -56,11 +50,10 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		log.debug("-----------------Method-loadUserByUsername------------------------");
 		
 		List<TblSysUsrinf> tblSysUsrinfs = tblSysUsrinfDAO.searchByCriteria(Restrictions.eq("uiUserId", username));
-		TblSysUsrinf tblSysUsrinf = null;
 		if(tblSysUsrinfs != null && tblSysUsrinfs.size() >= 1){
-			tblSysUsrinf = tblSysUsrinfs.get(0);
+			return tblSysUsrinfs.get(0);
 		}
-		return tblSysUsrinf;
+		return null;
 	}
 	
 	/**
@@ -75,67 +68,8 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		log.debug("-----------------Method-loadUserFunctionsByUsername------------------------");
 		
 		List<TblSysSysfun> userfuns = new ArrayList<TblSysSysfun>();
-		List<TblSysUsrrol> userroles = tblSysUsrrolDAO.searchByCriteria(Restrictions.eq("urUserId", username));
-		for(TblSysUsrrol  tblSysUsrrol : userroles) {
-			String roleid = tblSysUsrrol.getUrRoleId();
-			//List<TblSysRolfun> tblSysRolfuns = tblSysRolfunDAO.searchByCriteria(Restrictions.eq("rfRoleId", roleid));
-			List<TblSysRolfun> tblSysRolfuns = tblSysRolfunDAO.searchListByHQL("from TblSysRolfun as srf where srf.rfRoleId='" + roleid + "' order by srf.rfFunctionId asc");
-			for(TblSysRolfun tblSysRolfun : tblSysRolfuns) {
-				TblSysSysfun sysfun = loadUserFunctionById(tblSysRolfun.getRfFunctionId());
-				userfuns.add(sysfun);
-			}
-		}
+		userfuns = tblSysSysfunDAO.searchListByHQL("select distinct sf from TblSysUsrrol ur,TblSysRolfun rf,TblSysSysfun sf where ur.urUserId=? and ur.urRoleId=rf.rfRoleId and rf.rfFunctionId=sf.sfFunctionId order by sf.sfParentId asc, sf.sfFunctionId asc", username);
 		return userfuns;
-	}
-	
-	/**
-	 * 根据用户姓名加载用户具有的权限功能
-	 * @param username
-	 * @return
-	 * @throws AppException 
-	 */
-	public Map<String,TblSysSysfun> loadUserFunctionsMapByUsername(String username) throws AppException {
-		log.debug("-----------------Service-SysUserService------------------------");
-		log.debug("-----------------Method-loadUserFunctionsMapByUsername------------------------");
-		
-		Map<String, TblSysSysfun> userfunsMap = new HashMap<String, TblSysSysfun>();
-		List<TblSysUsrrol> userroles = tblSysUsrrolDAO.searchByCriteria(Restrictions.eq("urUserId", username));
-		for(TblSysUsrrol  tblSysUsrrol : userroles) {
-			String roleid = tblSysUsrrol.getUrRoleId();
-			List<TblSysRolfun> tblSysRolfuns = tblSysRolfunDAO.searchByCriteria(Restrictions.eq("rfRoleId", roleid));
-			for(TblSysRolfun tblSysRolfun : tblSysRolfuns) {
-				TblSysSysfun sysfun = loadUserFunctionById(tblSysRolfun.getRfFunctionId());
-				userfunsMap.put(sysfun.getSfFunctionId(), sysfun);
-			}
-		}
-		return userfunsMap;
-	}
-	
-	/**
-	 * 根据功能代码加载用户权限对象
-	 * @param fid
-	 * @return
-	 */
-	public TblSysSysfun loadUserFunctionById(String fid) throws AppException{
-		log.debug("-----------------Service-SysUserService------------------------");
-		log.debug("-----------------Method-loadUserFunctionById------------------------");
-		
-		if(StringUtils.isEmpty(fid)) { 
-			throw new InvalidParameterException("参数<fid>不合法");
-		}else {
-			try {
-				List<TblSysSysfun> tblSysSysfuns= tblSysSysfunDAO.sfFunctionIdEq(fid);
-				if(tblSysSysfuns == null || tblSysSysfuns.size() == 0) {
-					return null;
-				} else {
-					return tblSysSysfuns.get(0);
-				}
-			} catch(Exception e) {
-				log.error(e.getMessage());
-				e.printStackTrace();
-				throw new AppException("查询记录出错");
-			}
-		}
 	}
 	
 	/**

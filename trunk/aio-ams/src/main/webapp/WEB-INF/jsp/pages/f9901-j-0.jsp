@@ -37,7 +37,7 @@
             </div>
             <div class="middle_left_bottom">
             	<div class="dashboardpanel">
-                    <h3><img width="16" height="15" src="images/ico_2.gif" />任务提醒</h3>
+                    <h3><img width="16" height="15" src="images/ico_2.gif" />登录记录</h3>
                     <div class="dashboardpanelcontent">
                         <br/><br/><br/><br/><br/><br/><br/><br/>
                         <div class="clear"></div>

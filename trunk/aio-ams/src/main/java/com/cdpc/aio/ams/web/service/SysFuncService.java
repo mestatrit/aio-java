@@ -14,7 +14,6 @@ import com.cdpc.aio.ams.common.exception.AppException;
 import com.cdpc.aio.ams.common.interfaces.BaseService;
 import com.cdpc.aio.ams.common.interfaces.BaseSysFuncService;
 import com.cdpc.aio.ams.common.interfaces.PageQuery;
-import com.cdpc.aio.ams.common.util.SystemUser;
 import com.cdpc.aio.ams.web.dao.TblSysSysfunDAO;
 import com.cdpc.aio.ams.web.po.TblSysSysfun;
 
@@ -96,7 +95,8 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 			throw new InvalidParameterException("参数<sfId>不合法");
 		}else {
 			try {
-				tblSysSysfunDAO.bulkUpdate("delete TblSysSysfun t where t.sfId=" + sfId);
+				List<TblSysSysfun> sysfuns = tblSysSysfunDAO.searchListByHQL("from TblSysSysfun t where t.sfId=?", Long.parseLong(sfId));
+				tblSysSysfunDAO.deleteAll(sysfuns);
 			} catch(Exception e) {
 				log.error(e.getMessage());
 				e.printStackTrace();
@@ -112,7 +112,7 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 	 */
 	public TblSysSysfun queryByFunctionId(String fid) throws AppException {
 		log.debug("-----------------Service-SysFuncService------------------------");
-		log.debug("-----------------Method-queryById------------------------");
+		log.debug("-----------------Method-queryByFunctionId------------------------");
 		
 		if(StringUtils.isEmpty(fid)) { 
 			throw new InvalidParameterException("参数<fid>不合法");
@@ -181,59 +181,6 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 				throw new AppException("查询数据库异常");
 			}
 		}
-	}
-	
-	/**
-	 * 生成用户具有权限的菜单XML
-	 * @param systemUser
-	 * @param parentFunctionId
-	 * @return
-	 */
-	public String selectMenuXml(SystemUser systemUser, String parentFunctionId) {
-		log.debug("-----------------Service-SysFuncService------------------------");
-		log.debug("-----------------Method-selectMenuXml------------------------");
-		
-		String menuXml = null;
-		List<TblSysSysfun> menulist = selectMenuList(systemUser, parentFunctionId);
-		if(menulist != null && menulist.size() != 0) {
-			menuXml = MenuXmlBuilder.buildMenuXml(menulist);
-		}
-		if(menuXml == null) { 
-			menuXml = "";
-		}
-		return menuXml;
-	}
-	
-	/**
-	 * 查询用户拥有权限的Menu列表
-	 * @param systemUser
-	 * @param parentFunctionId
-	 * @return
-	 */
-	public List<TblSysSysfun> selectMenuList(SystemUser systemUser, String parentFunctionId) {
-		log.debug("-----------------Service-SysFuncService------------------------");
-		log.debug("-----------------Method-selectMenuList------------------------");
-		
-		if(systemUser == null || parentFunctionId == null) {
-			log.warn("sysUser or parentFunctionId is null");
-			return null;
-		}
-		if(StringUtils.isEmpty(parentFunctionId)) {
-			log.warn("parentFunctionId is empty");
-			return null;
-		}
-		List<TblSysSysfun> resultList = new ArrayList<TblSysSysfun>();
-		List<TblSysSysfun> userfuns = systemUser.getUserfuns();
-		for(TblSysSysfun userfun : userfuns) {
-			if(userfun != null && Constants.MENU_FLAG_ON.equals(userfun.getSfMenuFlag())) {
-				if(userfun != null && userfun.getSfParentId() != null) {
-					if(parentFunctionId.equals(userfun.getSfParentId())) {
-						resultList.add(userfun);
-					}
-				}
-			}
-		}
-		return resultList;
 	}
 	
 	public List getAll() {
