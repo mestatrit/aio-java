@@ -48,7 +48,7 @@ public class F9904Controller extends BaseController {
 		log.debug("-----------------Controller-F9904Controller------------------------");
 		log.debug("-----------------Method-gotoSystemFunctionPage------------------------");
 		
-		// 跳转到系统功能首页
+		// 跳转到系统功能管理首页
 		return "redirect:/f9904-s-1.do";
 	}
 	

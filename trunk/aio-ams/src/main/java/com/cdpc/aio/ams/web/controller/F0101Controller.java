@@ -29,7 +29,7 @@ public class F0101Controller extends BaseController {
 		log.debug("-----------------Controller-F0101Controller------------------------");
 		log.debug("-----------------Method-gotoAmsHistoryQuery------------------------");
 		
-		// 跳转到修改密码首页
+		// 跳转到历史件查询首页
 		return "pages/f0101-j-0";
 	}
 	
