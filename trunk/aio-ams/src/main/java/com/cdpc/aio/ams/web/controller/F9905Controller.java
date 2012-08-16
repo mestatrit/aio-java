@@ -31,10 +31,11 @@ import com.cdpc.aio.ams.web.vo.F9905OutObject;
 
 /**
  * 
- * 功能点9905控制器
+ * 功能代码：9905
+ * 功能名称：系统角色管理
  * 
  * @author evin.liu
- * 
+ *
  */
 @Controller
 public class F9905Controller extends BaseController {

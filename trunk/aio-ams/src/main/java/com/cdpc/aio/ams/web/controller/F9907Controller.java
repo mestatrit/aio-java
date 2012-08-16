@@ -27,7 +27,8 @@ import com.cdpc.aio.ams.web.vo.F9907OutObject;
 
 /**
  * 
- * 功能点9907控制器
+ * 功能代码：9907
+ * 功能名称：系统选项框管理
  * 
  * @author evin.liu
  *
