@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>com.cdpc.aio</groupId>
 			<artifactId>ams-rapid</artifactId>
-			<version>1.0.2</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.cdpc.aio</groupId>
@@ -244,6 +244,11 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.15</version>
+		</dependency>
+		<dependency>
+			<groupId>db2jcc</groupId>
+			<artifactId>db2jcc</artifactId>
+			<version>10.1</version>
 		</dependency>
 	<!-- ==================================================== -->
 		<dependency>

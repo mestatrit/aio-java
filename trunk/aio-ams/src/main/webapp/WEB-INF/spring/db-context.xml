@@ -10,7 +10,7 @@
 	<bean id="dbconfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>/WEB-INF/conf/db_mysql.properties</value>
+				<value>/WEB-INF/conf/db_db2.properties</value>
 				<value>classpath*:/com/cdpc/aio/ams/web/version.properties</value>
 			</list>
 		</property>
