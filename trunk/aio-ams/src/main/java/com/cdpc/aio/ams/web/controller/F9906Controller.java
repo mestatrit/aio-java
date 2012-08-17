@@ -217,7 +217,12 @@ public class F9906Controller extends BaseController {
 		for(int i=0; i< mids.size(); i++) {
 			String mid = mids.get(i);
 			TblSysUsrinf tblSysUsrinf = sysUserService.queryById(mid);
-			sysUserService.deleteSysUserAndRoleByUserid(tblSysUsrinf.getUiUserId());
+			try {
+				sysUserService.deleteSysUserAndRoleByUserid(tblSysUsrinf.getUiUserId());
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new AppException("删除系统用户[" + tblSysUsrinf.getUiUserId() + "]出错");
+			}
 		}
 		return "forward:f9906-s-2.do";
 	}

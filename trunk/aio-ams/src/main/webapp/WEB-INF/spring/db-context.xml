@@ -129,6 +129,6 @@
 		</property>
 	</bean>
 	
-	<tx:annotation-driven mode="aspectj" transaction-manager="hibernateTransactionManager"/>
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" proxy-target-class="true"/>
 
 </beans>

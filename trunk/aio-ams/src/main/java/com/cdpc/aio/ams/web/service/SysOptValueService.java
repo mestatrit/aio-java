@@ -96,7 +96,7 @@ public class SysOptValueService implements BaseService, BaseSysOptValueService {
 			throw new InvalidParameterException("参数<id>不合法");
 		}else {
 			try {
-				tblSysOptvalDAO.bulkUpdate("delete TblSysOptval t where t.ovId=" + id);
+				tblSysOptvalDAO.bulkUpdate("delete TblSysOptval t where t.ovId=?", Long.parseLong(id));
 			} catch(Exception e) {
 				log.error(e.getMessage());
 				e.printStackTrace();

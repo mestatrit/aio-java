@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cdpc.aio.ams.common.exception.AppException;
-import com.cdpc.aio.ams.common.exception.PersistenceException;
 import com.cdpc.aio.ams.common.interfaces.BaseService;
 import com.cdpc.aio.ams.common.interfaces.BaseSysUserService;
 import com.cdpc.aio.ams.common.interfaces.PageQuery;
@@ -60,10 +59,9 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	 * 根据用户姓名加载用户具有的权限功能
 	 * @param username
 	 * @return
-	 * @throws AppException 
 	 */
 	@Override
-	public List<TblSysSysfun> loadUserFunctionsByUsername(String username) throws AppException {
+	public List<TblSysSysfun> loadUserFunctionsByUsername(String username) {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-loadUserFunctionsByUsername------------------------");
 		
@@ -77,9 +75,8 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	 * @param systemUser
 	 * @param request
 	 * @param status
-	 * @throws AppException 
 	 */
-	public void changeUserStatus(SystemUser systemUser, HttpServletRequest request, String status) throws AppException {
+	public void changeUserStatus(SystemUser systemUser, HttpServletRequest request, String status) {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-changeUserStatus------------------------");
 		
@@ -87,13 +84,9 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		currentUser.setUiCurLogStats(status);
 		currentUser.setUiLstIpAddress(request.getRemoteAddr());
 		currentUser.setUiLstUserLoginTime(new Date());
-		try {
-			tblSysUsrinfDAO.update(currentUser);
-		} catch (PersistenceException e) {
-			log.error("修改用户状态异常" + e.getMessage());
-			e.printStackTrace();
-			throw new AppException("修改用户状态异常");
-		}
+			
+		tblSysUsrinfDAO.update(currentUser);
+		
 	}
 	
 	/**
@@ -143,40 +136,29 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	 * 保存系统用户及角色信息
 	 * @param tblSysUsrinf
 	 * @param f9906InObject
-	 * @throws AppException
+	 * @throws Exception
 	 */
-	@Transactional
-	public void save(TblSysUsrinf tblSysUsrinf, TblSysUsrrol tblSysUsrrol) throws AppException {
+	@Transactional(rollbackFor=Exception.class)
+	public void save(TblSysUsrinf tblSysUsrinf, TblSysUsrrol tblSysUsrrol) throws Exception {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-save------------------------");
 		
-		try {
-			tblSysUsrinfDAO.save(tblSysUsrinf);
-			tblSysUsrrolDAO.save(tblSysUsrrol);
-		} catch(Exception e) {
-			log.error(e.getMessage());
-			e.printStackTrace();
-			throw new AppException("保存系统用户及角色信息出错");
-		}
+		tblSysUsrinfDAO.save(tblSysUsrinf);
+		tblSysUsrrolDAO.save(tblSysUsrrol);
 	}
 	
 	/**
 	 * 更新系统用户信息
 	 * @param tblSysUsrinf
-	 * @throws AppException
+	 * @throws Exception
 	 */
-	public void update(TblSysUsrinf tblSysUsrinf, TblSysUsrrol tblSysUsrrol) throws AppException {
+	@Transactional(rollbackFor=Exception.class)
+	public void update(TblSysUsrinf tblSysUsrinf, TblSysUsrrol tblSysUsrrol) throws Exception {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-update------------------------");
 		
-		try {
-			tblSysUsrinfDAO.update(tblSysUsrinf);
-			tblSysUsrrolDAO.update(tblSysUsrrol);
-		} catch(Exception e) {
-			log.error(e.getMessage());
-			e.printStackTrace();
-			throw new AppException("更新记录出错");
-		}
+		tblSysUsrinfDAO.update(tblSysUsrinf);
+		tblSysUsrrolDAO.update(tblSysUsrrol);
 	}
 	
 	/**
@@ -249,21 +231,16 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	 * @param id
 	 * @throws AppException
 	 */
-	public void deleteSysUserAndRoleByUserid(String userid) throws AppException {
+	@Transactional(rollbackFor=Exception.class)
+	public void deleteSysUserAndRoleByUserid(String userid) throws Exception {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-deleteSysUserAndRoleByUserid------------------------");
 		
 		if(StringUtils.isEmpty(userid)) { 
 			throw new InvalidParameterException("参数<userid>不合法");
 		}else {
-			try {
-				tblSysUsrinfDAO.bulkUpdate("delete TblSysUsrinf t where t.uiUserId=?", userid);
-				tblSysUsrrolDAO.bulkUpdate("delete TblSysUsrrol t where t.urUserId=?", userid);
-			} catch(Exception e) {
-				log.error(e.getMessage());
-				e.printStackTrace();
-				throw new AppException("删除用户" + userid + "出错");
-			}
+			tblSysUsrinfDAO.bulkUpdate("delete TblSysUsrinf t where t.uiUserId=?", userid);
+			tblSysUsrrolDAO.bulkUpdate("delete TblSysUsrrol t where t.urUserId=?", userid);
 		}
 	}
 	

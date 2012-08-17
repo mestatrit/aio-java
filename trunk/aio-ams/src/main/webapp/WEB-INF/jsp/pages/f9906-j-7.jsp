@@ -44,7 +44,7 @@
 				</tr>
 				<tr>
 					<th>用户密码</th>
-					<td><input type="text" id="uiUserPwd" name="uiUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" value="${f9906OutObject.tblSysUsrinf.uiUserPwd }" size="8" readonly="readonly"/></td>
+					<td><input type="text" id="uiUserPwd" name="uiUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" value="" size="8" readonly="readonly"/></td>
 				</tr>
 				<tr>
 					<th>用户角色</th>
@@ -55,7 +55,7 @@
 				<tr>
 					<td colspan="2">
 						<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9906-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;" />  
-						<input type="button" name="button" value="修改 " onclick="window.history.go(-1);" style="cursor:pointer;" />
+						<input type="button" name="button" value="返回" onclick="window.history.go(-1);" style="cursor:pointer;" />
 					</td>
 				</tr>
 			</tfoot>
