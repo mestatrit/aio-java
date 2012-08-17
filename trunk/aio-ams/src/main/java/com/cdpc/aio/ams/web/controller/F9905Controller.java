@@ -243,7 +243,13 @@ public class F9905Controller extends BaseController {
 		}
 		for (int i = 0; i < mids.size(); i++) {
 			String mid = mids.get(i);
-			sysRoleService.deleteSysRoleByid(mid);
+			try {
+				sysRoleService.deleteSysRoleByid(mid);
+			} catch(Exception e) {
+				log.error(e.getMessage());
+				e.printStackTrace();
+				throw new AppException("删除系统角色[" + mid + "]出错.");
+			}
 		}
 		return "forward:f9905-s-2.do";
 	}
