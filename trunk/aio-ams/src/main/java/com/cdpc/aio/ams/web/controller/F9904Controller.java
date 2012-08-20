@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,7 +134,7 @@ public class F9904Controller extends BaseController {
 			return;
 		}
 		tblSysSysfun.setSfLstModiUserId(SystemUtils.getCurrentUserId(request));
-		tblSysSysfun.setSfLstModiDate(new Date());
+		tblSysSysfun.setSfLstModiDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 		
 		// 验证功能代码是否重复
 		TblSysSysfun t = sysFuncService.queryByFunctionId(tblSysSysfun.getSfFunctionId());
@@ -268,7 +269,7 @@ public class F9904Controller extends BaseController {
 		try {
 			BeanUtils.copyProperties(tblSysSysfunNew, f9904InObject);
 		} catch (Exception e) {
-			log.error("编辑系统功能出错");
+			log.error("修改系统功能出错");
 			e.printStackTrace();
 			
 			f9904OutObject.setErrorMessage(e.getMessage());
@@ -276,13 +277,13 @@ public class F9904Controller extends BaseController {
 			return;
 		}
 		tblSysSysfunNew.setSfLstModiUserId(SystemUtils.getCurrentUserId(request));
-		tblSysSysfunNew.setSfLstModiDate(new Date());
+		tblSysSysfunNew.setSfLstModiDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 		
 		// 更新
 		try {
 			sysFuncService.update(tblSysSysfunNew);
 		} catch(Exception e) {
-			log.error("更新系统功能出错");
+			log.error("修改系统功能出错");
 			
 			f9904OutObject.setErrorMessage(e.getMessage());
 			super.ajaxOutJson(f9904OutObject, response);

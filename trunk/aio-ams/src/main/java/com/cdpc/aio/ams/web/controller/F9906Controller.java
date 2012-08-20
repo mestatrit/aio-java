@@ -249,7 +249,7 @@ public class F9906Controller extends BaseController {
 		// 准备数据
 		List<String> mids = f9906InObject.getMid();
 		if (mids == null || mids.size() == 0) {
-			throw new AppException("要编辑的系统用户代码为空.");
+			throw new AppException("要修改的系统用户代码为空.");
 		}
 		String mid = mids.get(0);
 
@@ -289,7 +289,7 @@ public class F9906Controller extends BaseController {
 		try {
 			sysUserService.update(tblSysUsrrol);
 		} catch (Exception e) {
-			log.error("update error.");
+			log.error("修改系统用户角色出错.");
 			e.printStackTrace();
 
 			f9906OutObject.setErrorMessage(e.getMessage());
