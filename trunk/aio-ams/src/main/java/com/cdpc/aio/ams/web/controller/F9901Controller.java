@@ -24,6 +24,7 @@ import com.cdpc.aio.ams.web.dao.TblSysRolfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrinfDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrrolDAO;
+import com.cdpc.aio.ams.web.po.TblSysLogrec;
 import com.cdpc.aio.ams.web.po.TblSysSysfun;
 import com.cdpc.aio.ams.web.po.TblSysUsrinf;
 import com.cdpc.aio.ams.web.service.SysUserService;
@@ -108,7 +109,7 @@ public class F9901Controller extends BaseController {
 		}
 		
 		//===========================================================================================
-		// 加载用户菜单、权限等信息
+		// 加载用户菜单、权限、登录日志等信息
 		List<TblSysSysfun> userfuns = sysUserService.loadUserFunctionsByUsername(username);
 		
 		SystemUser systemUser = new SystemUser();
@@ -116,15 +117,20 @@ public class F9901Controller extends BaseController {
 		systemUser.setTblSysUsrinf(tblSysUsrinf);
 		systemUser.setUserfuns(userfuns);
 		
+		//记录登录日志
 		String loginTime = DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
+		sysUserService.saveLoginLog(username, loginTime, request.getRemoteAddr());
+		// 查询登录日志
+		List<TblSysLogrec> logrecs = sysUserService.queryUserLoginlogByUserId(username);
 		
 		request.getSession().setAttribute("userfuns", userfuns);
 		request.getSession().setAttribute("sysuser", systemUser);
 		request.getSession().setAttribute("loginTime", loginTime);
+		request.getSession().setAttribute("logrecs", logrecs);
 		//===========================================================================================
-		// 修改用户登录标记,记录日志
+		// 修改用户登录标记
 		sysUserService.changeUserStatus(systemUser, request, Constants.LOGIN_FLAG);
-		log.info(username + "login successfully.");
+		log.info("[" + username + "]-->login successfully.");
 		
 		HttpSession session = SystemUtils.getSession(request);
 		

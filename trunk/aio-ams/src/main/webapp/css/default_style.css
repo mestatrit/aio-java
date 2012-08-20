@@ -134,4 +134,10 @@ a:hover { color:#393939;}
 .edit_table tfoot tr { height:30px; text-align:center;}
 
 .underlined { text-decoration:underline; color:#FFFFFF;}
+
+.common_result {}
+.common_result thead tr { height:20px; background:#393939; color:#ECECEC;}
+.common_result tbody tr { height:20px; text-align:center;}
+.common_result tbody tr.even{ background:#ECECEC;}
+.common_result tbody tr.odd{ background:#DEDEDE;}
 /**********************************************************************************************************/

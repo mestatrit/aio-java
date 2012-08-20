@@ -39,7 +39,28 @@
             	<div class="dashboardpanel">
                     <h3><img width="16" height="15" src="images/ico_2.gif" />登录记录</h3>
                     <div class="dashboardpanelcontent">
-                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="common_result">
+						<thead>
+							<tr>
+								<th>时间</th>
+								<th>用户名</th>
+								<th>地址</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:if test="${logrecs != null}">
+								<c:if test="${!empty logrecs}">
+									<c:forEach items="${logrecs}" var="logrec" varStatus="status">
+										<tr <c:if test="${status.index % 2 == 0}">class="even"</c:if><c:if test="${status.index % 2 != 0}">class="odd"</c:if>>
+											<td width="40%">${logrec.lrLogindate}</td>
+											<td>${logrec.lrUsername }</td>
+											<td>${logrec.lrLoginip }</td>
+										</tr>
+									</c:forEach>
+								</c:if>
+							</c:if>
+						</tbody>
+						</table>
                         <div class="clear"></div>
                     </div>
             	</div>

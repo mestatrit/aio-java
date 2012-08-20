@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -141,7 +142,7 @@ public class F9906Controller extends BaseController {
 		tblSysUsrinf.setUiUserPwd(EncryptUtils.passwordMd52Hex(f9906InObject.getUiUserPwd()));
 		tblSysUsrinf.setUiCurLogStats("0");
 		tblSysUsrinf.setUiLstModiUserId(SystemUtils.getCurrentUserId(request));
-		tblSysUsrinf.setUiLstModiDate(new Date());
+		tblSysUsrinf.setUiLstModiDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 
 		tblSysUsrrol.setUrUserId(f9906InObject.getUiUserId());
 		tblSysUsrrol.setUrRoleId(f9906InObject.getUserRoleId());
