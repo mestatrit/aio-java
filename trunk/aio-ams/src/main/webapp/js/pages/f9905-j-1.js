@@ -60,11 +60,11 @@ function edit(baseUrl) {
 		}
 	}
 	if(count == 0) {
-		tipsInfoByJquery(["请选择要编辑的项目."]);
+		tipsInfoByJquery(["请选择要修改的项目."]);
 		return;
 	}
 	if(count > 1) {
-		tipsInfoByJquery(["一次只能编辑一个项目."]);
+		tipsInfoByJquery(["一次只能修改一个项目."]);
 		return;
 	}
 	if(count == 1) {
