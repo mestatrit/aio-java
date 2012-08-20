@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -158,7 +159,7 @@ public class F9905Controller extends BaseController {
 		}
 
 		tblSysSysrol.setSrLstModiUserId(SystemUtils.getCurrentUserId(request));
-		tblSysSysrol.setSrLstModiDate(new Date());
+		tblSysSysrol.setSrLstModiDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 
 		// 整理权限
 		List<TblSysRolfun> rolefuns = new ArrayList<TblSysRolfun>();
@@ -313,7 +314,7 @@ public class F9905Controller extends BaseController {
 		}
 
 		tblSysSysrolNew.setSrLstModiUserId(SystemUtils.getCurrentUserId(request));
-		tblSysSysrolNew.setSrLstModiDate(new Date());
+		tblSysSysrolNew.setSrLstModiDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 
 		// 整理权限
 		List<TblSysRolfun> rolefuns = new ArrayList<TblSysRolfun>();
