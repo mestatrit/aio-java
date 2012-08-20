@@ -10,7 +10,7 @@ function save(baseUrl) {
 			data : $("#f9905-f-3").serialize(),
 			success : function(f9905OutObject) {
 				if (f9905OutObject.saveSuccess) {
-					tipsInfoByJquery(["系统角色信息保存成功."]);
+					tipsInfoByJquery(["系统角色信息新增成功."]);
 				} else {
 					tipsInfoByJquery(["出错了:" + f9905OutObject.errorMessage]);
 				}

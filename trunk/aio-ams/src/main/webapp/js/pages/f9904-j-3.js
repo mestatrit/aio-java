@@ -10,7 +10,7 @@ function save(baseUrl) {
 			data : $("#f9904-f-3").serialize(),
 			success : function(f9904OutObject) {
 				if (f9904OutObject.saveSuccess) {
-					tipsInfoByJquery(["系统功能保存成功."]);
+					tipsInfoByJquery(["系统功能新增成功."]);
 				} else {
 					tipsInfoByJquery(["出错了:" + f9904OutObject.errorMessage]);
 				}

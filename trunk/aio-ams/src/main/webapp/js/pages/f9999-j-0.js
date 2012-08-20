@@ -10,7 +10,7 @@ function save(baseUrl) {
 			data : $("#f9999-f-0").serialize(),
 			success : function(f9999OutObject) {
 				if (f9999OutObject.editSuccess) {
-					tipsInfoByJquery(["用户密码修改成功."]);
+					tipsInfoByJquery(["您的登录密码修改成功."]);
 				} else {
 					tipsInfoByJquery(["出错了:" + f9999OutObject.errorMessage]);
 				}
