@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,9 +21,11 @@ import com.cdpc.aio.ams.common.interfaces.BaseService;
 import com.cdpc.aio.ams.common.interfaces.BaseSysUserService;
 import com.cdpc.aio.ams.common.interfaces.PageQuery;
 import com.cdpc.aio.ams.common.util.SystemUser;
+import com.cdpc.aio.ams.web.dao.TblSysLogrecDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrinfDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrrolDAO;
+import com.cdpc.aio.ams.web.po.TblSysLogrec;
 import com.cdpc.aio.ams.web.po.TblSysSysfun;
 import com.cdpc.aio.ams.web.po.TblSysUsrinf;
 import com.cdpc.aio.ams.web.po.TblSysUsrrol;
@@ -38,6 +41,8 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	private TblSysUsrrolDAO tblSysUsrrolDAO;
 	@Autowired
 	private TblSysSysfunDAO tblSysSysfunDAO;
+	@Autowired
+	private TblSysLogrecDAO tblSysLogrecDAO;
 	
 	/**
 	 * 根据用户名查询用户信息
@@ -83,7 +88,7 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		TblSysUsrinf currentUser = systemUser.getTblSysUsrinf();
 		currentUser.setUiCurLogStats(status);
 		currentUser.setUiLstIpAddress(request.getRemoteAddr());
-		currentUser.setUiLstUserLoginTime(new Date());
+		currentUser.setUiLstUserLoginTime(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 			
 		tblSysUsrinfDAO.update(currentUser);
 		
@@ -306,6 +311,11 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		}
 	}
 	
+	/**
+	 * 修改用户密码
+	 * @param tblSysUsrinf
+	 * @throws AppException
+	 */
 	public void changeUserPasswd(TblSysUsrinf tblSysUsrinf) throws AppException {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-changeUserPasswd------------------------");
@@ -317,10 +327,88 @@ public class SysUserService implements BaseService, BaseSysUserService {
 			throw new AppException("修改用户" + tblSysUsrinf.getUiUserId() + "密码出错");
 		}
 	}
+	
+	/**
+	 * 保存登录日志
+	 * @param tblSysLogrec
+	 * @throws AppException
+	 */
+	public void saveLoginLog(String lrUsername, String lrLogindate, String lrLoginip) throws AppException {
+		log.debug("-----------------Service-SysUserService------------------------");
+		log.debug("-----------------Method-saveLoginLog------------------------");
+		
+		TblSysLogrec tblSysLogrec = new TblSysLogrec();
+		tblSysLogrec.setLrUsername(lrUsername);
+		tblSysLogrec.setLrLogindate(lrLogindate);
+		tblSysLogrec.setLrLoginip(lrLoginip);
+		
+		try {
+			tblSysLogrecDAO.save(tblSysLogrec);
+		} catch(Exception e) {
+			log.error(e.getMessage());
+			e.printStackTrace();
+			throw new AppException("记录用户登录日志出错");
+		}
+	}
+	
+	/**
+	 * 查询用户登录记录
+	 * @param userid
+	 * @return
+	 * @throws AppException
+	 */
+	public List<TblSysLogrec> queryUserLoginlogByUserId(String userid) throws AppException {
+		log.debug("-----------------Service-SysUserService------------------------");
+		log.debug("-----------------Method-queryUserLoginlogByUserId------------------------");
+		
+		if(StringUtils.isEmpty(userid)) { 
+			throw new InvalidParameterException("参数<userid>不合法");
+		}else {
+			try {
+				return tblSysLogrecDAO.searchListByHQL("from TblSysLogrec t where t.lrUsername=? order by lrLogindate desc", new Object[]{userid}, 0, 5);
+			} catch(Exception e) {
+				log.error(e.getMessage());
+				e.printStackTrace();
+				throw new AppException("查询用户" + userid + "登录记录出错");
+			}
+		}
+	}
 
 	@Override
 	public List getAll() {
 		return tblSysUsrinfDAO.searchAll();
+	}
+
+	public TblSysUsrinfDAO getTblSysUsrinfDAO() {
+		return tblSysUsrinfDAO;
+	}
+
+	public void setTblSysUsrinfDAO(TblSysUsrinfDAO tblSysUsrinfDAO) {
+		this.tblSysUsrinfDAO = tblSysUsrinfDAO;
+	}
+
+	public TblSysUsrrolDAO getTblSysUsrrolDAO() {
+		return tblSysUsrrolDAO;
+	}
+
+	public void setTblSysUsrrolDAO(TblSysUsrrolDAO tblSysUsrrolDAO) {
+		this.tblSysUsrrolDAO = tblSysUsrrolDAO;
+	}
+
+	public TblSysSysfunDAO getTblSysSysfunDAO() {
+		return tblSysSysfunDAO;
+	}
+
+	public void setTblSysSysfunDAO(TblSysSysfunDAO tblSysSysfunDAO) {
+		this.tblSysSysfunDAO = tblSysSysfunDAO;
+	}
+
+	public TblSysLogrecDAO getTblSysLogrecDAO() {
+		return tblSysLogrecDAO;
+	}
+
+	public void setTblSysLogrecDAO(TblSysLogrecDAO tblSysLogrecDAO) {
+		this.tblSysLogrecDAO = tblSysLogrecDAO;
 	}
 	
 }
