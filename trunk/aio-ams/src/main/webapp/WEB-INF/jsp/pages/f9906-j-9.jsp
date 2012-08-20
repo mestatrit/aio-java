@@ -17,12 +17,12 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/pageQuery.js"></script>
-<script type="text/javascript" src="js/pages/f9906-j-7.js"></script>
+<script type="text/javascript" src="js/pages/f9906-j-9.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
 	$(document).ready(function() {
 		// binds form submission and fields to the validation engine
-		$("#f9906-f-7").validationEngine();
+		$("#f9906-f-9").validationEngine();
 	});
 </script>
 </head>
@@ -34,24 +34,26 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-		<form id="f9906-f-7" action="f9906-s-8.do" method="post">
-		<input type="hidden" id="uiId" name="uiId" value="${f9906OutObject.tblSysUsrinf.uiId }" />
+		<form id="f9906-f-9" action="f9906-s-10.do" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit_table">
 			<tbody>
 				<tr>
-					<th width="35%">用户ID</th>
-					<td><input type="text" id="uiUserId" name="uiUserId" size="20" value="${f9906OutObject.tblSysUsrinf.uiUserId }" readonly="readonly" /></td>
+					<th>新密码</th>
+					<td>
+						<input type="hidden" id="uiUserId" name="uiUserId" value="${f9906OutObject.tblSysUsrinf.uiUserId }" />
+						<input type="password" id="newUserPwd" name="newUserPwd" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" size="20" /> <span><font color="red">*</font></span>
+					</td>
 				</tr>
 				<tr>
-					<th>用户角色</th>
-					<td><j:PageSelectAnywhere id="userRoleId" name="userRoleId" dataService="sysRoleService" labelColumn="srRoleName" valueColumn="srRoleId" initValue="${f9906OutObject.userRole }" /> <span><font color="red">*</font></span></td>
+					<th>新密码(再次输入)</th>
+					<td><input type="password" id="newUserPwd2" name="newUserPwd2" class="validate[required,custom[onlyNumberSp],minSize[1],maxSize[8]]" size="20" /> <span><font color="red">*</font></span></td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2">
-						<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9906-f-7').validationEngine('validate')){save('');};" style="cursor:pointer;" />  
-						<input type="button" name="button" value="返回" onclick="window.history.go(-1);" style="cursor:pointer;" />
+						<input type="button" name="button" value="修改 " onclick="if(jQuery('#f9906-f-9').validationEngine('validate')){save('');};" />
+						<input type="button" name="button" value="返回 " onclick="window.history.go(-1);" />
 					</td>
 				</tr>
 			</tfoot>

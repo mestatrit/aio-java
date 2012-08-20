@@ -148,7 +148,20 @@ public class SysUserService implements BaseService, BaseSysUserService {
 	}
 	
 	/**
-	 * 更新系统用户信息
+	 * 更新系统用户角色信息
+	 * @param tblSysUsrinf
+	 * @throws Exception
+	 */
+	@Transactional(rollbackFor=Exception.class)
+	public void update(TblSysUsrrol tblSysUsrrol) throws Exception {
+		log.debug("-----------------Service-SysUserService------------------------");
+		log.debug("-----------------Method-update------------------------");
+		
+		tblSysUsrrolDAO.update(tblSysUsrrol);
+	}
+	
+	/**
+	 * 更新系统用户信息及用户角色信息
 	 * @param tblSysUsrinf
 	 * @throws Exception
 	 */

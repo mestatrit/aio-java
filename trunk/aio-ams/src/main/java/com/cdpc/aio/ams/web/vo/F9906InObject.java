@@ -14,8 +14,10 @@ public class F9906InObject {
 	private java.util.Date uiLstModiDate;
 	
 	private List<String> mid;
-	
 	private String userRoleId;
+	
+	private String newUserPwd;
+	private String newUserPwd2;
 
 	public java.lang.Long getUiId() {
 		return uiId;
@@ -95,6 +97,22 @@ public class F9906InObject {
 
 	public void setUserRoleId(String userRoleId) {
 		this.userRoleId = userRoleId;
+	}
+
+	public String getNewUserPwd() {
+		return newUserPwd;
+	}
+
+	public void setNewUserPwd(String newUserPwd) {
+		this.newUserPwd = newUserPwd;
+	}
+
+	public String getNewUserPwd2() {
+		return newUserPwd2;
+	}
+
+	public void setNewUserPwd2(String newUserPwd2) {
+		this.newUserPwd2 = newUserPwd2;
 	}
 
 }
