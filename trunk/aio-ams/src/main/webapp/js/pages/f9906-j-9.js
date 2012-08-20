@@ -5,12 +5,12 @@ function save(baseUrl) {
 	   {
 			type : "POST",
 			async: false,
-			url : "f9906-s-8.do",
+			url : "f9906-s-10.do",
 			dataType : "json",
-			data : $("#f9906-f-7").serialize(),
+			data : $("#f9906-f-9").serialize(),
 			success : function(f9906OutObject) {
 				if (f9906OutObject.editSuccess) {
-					tipsInfoByJquery(["系统用户角色修改成功."]);
+					tipsInfoByJquery(["用户密码重置成功."]);
 				} else {
 					tipsInfoByJquery(["出错了:" + f9906OutObject.errorMessage]);
 				}
