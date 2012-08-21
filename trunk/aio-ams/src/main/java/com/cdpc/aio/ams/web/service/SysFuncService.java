@@ -183,8 +183,14 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 		}
 	}
 	
+	@Override
 	public List getAll() {
-		return tblSysSysfunDAO.searchAll();
+		log.debug("-----------------Service-SysFuncService------------------------");
+		log.debug("-----------------Method-getAll------------------------");
+		
+		List<TblSysSysfun> resultList = new ArrayList<TblSysSysfun>();
+		resultList = tblSysSysfunDAO.searchListByHQL("from TblSysSysfun t order by t.sfParentId asc, t.sfFunctionId asc");
+		return resultList;
 	}
 	
 	/**
