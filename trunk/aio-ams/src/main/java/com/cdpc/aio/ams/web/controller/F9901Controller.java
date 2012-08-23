@@ -24,9 +24,11 @@ import com.cdpc.aio.ams.web.dao.TblSysRolfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrinfDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrrolDAO;
+import com.cdpc.aio.ams.web.po.TblSysBulletin;
 import com.cdpc.aio.ams.web.po.TblSysLogrec;
 import com.cdpc.aio.ams.web.po.TblSysSysfun;
 import com.cdpc.aio.ams.web.po.TblSysUsrinf;
+import com.cdpc.aio.ams.web.service.SysBulletinService;
 import com.cdpc.aio.ams.web.service.SysUserService;
 import com.cdpc.common.codec.EncryptUtils;
 
@@ -55,6 +57,8 @@ public class F9901Controller extends BaseController {
 	
 	@Autowired
 	private SysUserService sysUserService;
+	@Autowired
+	private SysBulletinService sysBulletinService;
 
 	@RequestMapping("/f9901.do")
 	public String userlogin(HttpServletRequest request, HttpServletResponse response) throws AppException {
@@ -122,11 +126,13 @@ public class F9901Controller extends BaseController {
 		sysUserService.saveLoginLog(username, loginTime, request.getRemoteAddr());
 		// 查询登录日志
 		List<TblSysLogrec> logrecs = sysUserService.queryUserLoginlogByUserId(username);
+		List<TblSysBulletin> bulletins = sysBulletinService.queryLoginBulletins();
 		
 		request.getSession().setAttribute("userfuns", userfuns);
 		request.getSession().setAttribute("sysuser", systemUser);
 		request.getSession().setAttribute("loginTime", loginTime);
 		request.getSession().setAttribute("logrecs", logrecs);
+		request.getSession().setAttribute("bulletins", bulletins);
 		//===========================================================================================
 		// 修改用户登录标记
 		sysUserService.changeUserStatus(systemUser, request, Constants.LOGIN_FLAG);

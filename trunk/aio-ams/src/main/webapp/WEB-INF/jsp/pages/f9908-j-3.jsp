@@ -17,9 +17,13 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/pageQuery.js"></script>
-<script type="text/javascript" src="js/pages/f9907-j-5.js"></script>
+<script type="text/javascript" src="js/pages/f9908-j-3.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
+	$(document).ready(function() {
+		// binds form submission and fields to the validation engine
+		$("#f9908-f-3").validationEngine();
+	});
 </script>
 </head>
 
@@ -30,33 +34,28 @@
 		<j:PageSpace contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 
 		<div class=content>
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
-		<tbody>
-			<tr>
-				<th width="35%">选项表名</th>
-				<td>${f9907OutObject.tblSysOptval.ovTblName }</td>
-			</tr>
-			<tr>
-				<th>选项列名</th>
-				<td>${f9907OutObject.tblSysOptval.ovColName }</td>
-			</tr>
-			<tr>
-				<th>选项标签</th>
-				<td>${f9907OutObject.tblSysOptval.ovOptLabel }</td>
-			</tr>
-			<tr>
-				<th>选项值</th>
-				<td>${f9907OutObject.tblSysOptval.ovOptValue }</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td colspan="2">
-					<input type="button" name="button" value="返回 " onclick="window.history.go(-1);" style="cursor:pointer;" />
-				</td>
-			</tr>
-		</tfoot>
+		<form id="f9908-f-3" action="f9908-s-4.do" method="post">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="insert_table">
+			<tbody>
+				<tr>
+					<th width="35%">标题</th>
+					<td><input type="text" id="btTitle" name="btTitle" class="validate[required,minSize[1],maxSize[100]]" size="50" /> <span><font color="red">*</font></span></td>
+				</tr>
+				<tr>
+					<th>内容</th>
+					<td><input type="text" id="btContent" name="btContent" class="validate[required,minSize[1],maxSize[1024]]" size="50" /> <span><font color="red">*</font></span></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th colspan="2">
+						<input type="button" name="button" value="保存 " onclick="if(jQuery('#f9908-f-3').validationEngine('validate')){save('');};" style="cursor:pointer;" />
+						<input type="button" name="button" value="返回" onclick="window.history.go(-1);" style="cursor:pointer;" />
+					</th>
+				</tr>
+			</tfoot>
 		</table>
+		</form>
 		</div>
 		<j:PageBottomAndCopyright contextPath="<%=contextPath%>" basePath="<%=basePath%>" />
 		<j:PageTips />

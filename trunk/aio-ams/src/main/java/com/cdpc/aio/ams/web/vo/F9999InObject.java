@@ -4,9 +4,7 @@ package com.cdpc.aio.ams.web.vo;
 public class F9999InObject {
 
 	private String oldUserPwd = null;
-	
 	private String newUserPwd = null;
-	
 	private String newUserPwd2 = null;
 
 	public String getOldUserPwd() {

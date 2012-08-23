@@ -71,7 +71,26 @@
         	<div class="dashboardpanel">
                 <h3><img width="16" height="15" src="images/ico_3.gif" />系统公告</h3>
                 <div class="dashboardpanelcontent">
-                	<br/><br/><br/><br/><br/><br/><br/><br/>
+                		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="common_result">
+						<thead>
+							<tr>
+								<th>发布时间</th>
+								<th>标题</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:if test="${bulletins != null}">
+								<c:if test="${!empty bulletins}">
+									<c:forEach items="${bulletins}" var="bulletin" varStatus="status">
+										<tr <c:if test="${status.index % 2 == 0}">class="even"</c:if><c:if test="${status.index % 2 != 0}">class="odd"</c:if>>
+											<td width="40%">${bulletin.btCreateDate }</td>
+											<td><a href="f9908-s-5.do?mid=${bulletin.btId }">${bulletin.btTitle }</a></td>
+										</tr>
+									</c:forEach>
+								</c:if>
+							</c:if>
+						</tbody>
+						</table>
              		<div class="clear"></div>
              	</div>
             </div>
