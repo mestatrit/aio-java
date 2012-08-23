@@ -100,7 +100,7 @@ public class SysOptValueService implements BaseService, BaseSysOptValueService {
 			} catch(Exception e) {
 				log.error(e.getMessage());
 				e.printStackTrace();
-				throw new AppException("删除功能" + id + "出错");
+				throw new AppException("删除选项框" + id + "出错");
 			}
 		}
 	}

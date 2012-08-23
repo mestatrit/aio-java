@@ -17,7 +17,7 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/tips.js"></script>
 <script type="text/javascript" src="js/pageQuery.js"></script>
-<script type="text/javascript" src="js/pages/f9907-j-5.js"></script>
+<script type="text/javascript" src="js/pages/f9908-j-5.js"></script>
 <script type="text/javascript">
 	var baseUrl = '<%=basePath%>';
 </script>
@@ -33,20 +33,24 @@
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="detail_table">
 		<tbody>
 			<tr>
-				<th width="35%">选项表名</th>
-				<td>${f9907OutObject.tblSysOptval.ovTblName }</td>
+				<th width="35%">发布时间</th>
+				<td>${f9908OutObject.tblSysBulletin.btCreateDate }</td>
 			</tr>
 			<tr>
-				<th>选项列名</th>
-				<td>${f9907OutObject.tblSysOptval.ovColName }</td>
+				<th>标题</th>
+				<td>${f9908OutObject.tblSysBulletin.btTitle }</td>
 			</tr>
 			<tr>
-				<th>选项标签</th>
-				<td>${f9907OutObject.tblSysOptval.ovOptLabel }</td>
+				<th>内容</th>
+				<td>${f9908OutObject.tblSysBulletin.btContent }</td>
 			</tr>
 			<tr>
-				<th>选项值</th>
-				<td>${f9907OutObject.tblSysOptval.ovOptValue }</td>
+				<th>最后修改用户ID</th>
+				<td>${f9908OutObject.tblSysBulletin.btLstModiUserId }</td>
+			</tr>
+			<tr>
+				<th>最后修改时间</th>
+				<td>${f9908OutObject.tblSysBulletin.btLstModiDate }</td>
 			</tr>
 		</tbody>
 		<tfoot>
