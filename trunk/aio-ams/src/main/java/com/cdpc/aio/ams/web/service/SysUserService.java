@@ -148,7 +148,9 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-save------------------------");
 		
+		tblSysUsrinf.setUiId(tblSysUsrinfDAO.findNextSequenceVal("SEQ_TBL_SYS_USRINF_UI_ID"));
 		tblSysUsrinfDAO.save(tblSysUsrinf);
+		tblSysUsrrol.setUrId(tblSysUsrrolDAO.findNextSequenceVal("SEQ_TBL_SYS_USRROL_UR_ID"));
 		tblSysUsrrolDAO.save(tblSysUsrrol);
 	}
 	
@@ -338,6 +340,7 @@ public class SysUserService implements BaseService, BaseSysUserService {
 		log.debug("-----------------Method-saveLoginLog------------------------");
 		
 		TblSysLogrec tblSysLogrec = new TblSysLogrec();
+		tblSysLogrec.setLrId(tblSysLogrecDAO.findNextSequenceVal("SEQ_TBL_SYS_LOGREC_LR_ID"));
 		tblSysLogrec.setLrUsername(lrUsername);
 		tblSysLogrec.setLrLogindate(lrLogindate);
 		tblSysLogrec.setLrLoginip(lrLoginip);
