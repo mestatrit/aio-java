@@ -22,7 +22,9 @@ import com.cdpc.aio.ams.common.interfaces.PageQuery;
 import com.cdpc.aio.ams.common.util.PageDataUtils;
 import com.cdpc.aio.ams.common.util.PageUtils;
 import com.cdpc.aio.ams.common.util.SystemUtils;
+import com.cdpc.aio.ams.web.dao.TblSysRolfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysrolCriterions;
+import com.cdpc.aio.ams.web.dao.TblSysSysrolDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysrolOrders;
 import com.cdpc.aio.ams.web.po.TblSysRolfun;
 import com.cdpc.aio.ams.web.po.TblSysSysrol;
@@ -42,7 +44,10 @@ import com.cdpc.aio.ams.web.vo.F9905OutObject;
 public class F9905Controller extends BaseController {
 
 	private static Logger log = LoggerFactory.getLogger(F9905Controller.class);
-
+	@Autowired
+	private TblSysSysrolDAO tblSysSysrolDAO;
+	@Autowired
+	private TblSysRolfunDAO tblSysRolfunDAO;
 	@Autowired
 	private SysRoleService sysRoleService;
 
@@ -157,7 +162,8 @@ public class F9905Controller extends BaseController {
 			super.ajaxOutJson(f9905OutObject, response);
 			return;
 		}
-
+		
+		tblSysSysrol.setSrId(tblSysSysrolDAO.findNextSequenceVal("SEQ_TBL_SYS_SYSROL_SR_ID"));
 		tblSysSysrol.setSrLstModiUserId(SystemUtils.getCurrentUserId(request));
 		tblSysSysrol.setSrLstModiDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 
@@ -168,6 +174,7 @@ public class F9905Controller extends BaseController {
 			for (int i = 0; i < checkedRights.size(); i++) {
 				String funid = checkedRights.get(i);
 				TblSysRolfun t = new TblSysRolfun();
+				t.setRfId(tblSysRolfunDAO.findNextSequenceVal("SEQ_TBL_SYS_ROLFUN_RF_ID"));
 				t.setRfRoleId(f9905InObject.getSrRoleId());
 				t.setRfFunctionId(funid);
 				rolefuns.add(t);

@@ -20,6 +20,7 @@ import com.cdpc.aio.ams.common.interfaces.BaseController;
 import com.cdpc.aio.ams.common.session.SessionManager;
 import com.cdpc.aio.ams.common.util.SystemUser;
 import com.cdpc.aio.ams.common.util.SystemUtils;
+import com.cdpc.aio.ams.web.dao.TblSysLogrecDAO;
 import com.cdpc.aio.ams.web.dao.TblSysRolfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysSysfunDAO;
 import com.cdpc.aio.ams.web.dao.TblSysUsrinfDAO;
@@ -54,6 +55,8 @@ public class F9901Controller extends BaseController {
 	private TblSysRolfunDAO tblSysRolfunDAO;
 	@Autowired
 	private TblSysSysfunDAO tblSysSysfunDAO;
+	@Autowired
+	private TblSysLogrecDAO tblSysLogrecDAO;
 	
 	@Autowired
 	private SysUserService sysUserService;
@@ -214,5 +217,13 @@ public class F9901Controller extends BaseController {
 
 	public void setTblSysSysfunDAO(TblSysSysfunDAO tblSysSysfunDAO) {
 		this.tblSysSysfunDAO = tblSysSysfunDAO;
+	}
+
+	public TblSysLogrecDAO getTblSysLogrecDAO() {
+		return tblSysLogrecDAO;
+	}
+
+	public void setTblSysLogrecDAO(TblSysLogrecDAO tblSysLogrecDAO) {
+		this.tblSysLogrecDAO = tblSysLogrecDAO;
 	}
 }

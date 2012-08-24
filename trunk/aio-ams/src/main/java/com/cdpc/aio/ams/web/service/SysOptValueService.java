@@ -57,6 +57,7 @@ public class SysOptValueService implements BaseService, BaseSysOptValueService {
 		log.debug("-----------------Method-save------------------------");
 		
 		try {
+			tblSysOptval.setOvId(tblSysOptvalDAO.findNextSequenceVal("SEQ_TBL_SYS_OPTVAL_OV_ID"));
 			tblSysOptvalDAO.save(tblSysOptval);
 		} catch(Exception e) {
 			log.error(e.getMessage());

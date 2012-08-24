@@ -40,7 +40,6 @@ import com.cdpc.aio.ams.web.vo.F9904OutObject;
 public class F9904Controller extends BaseController {
 
 	private static Logger log = LoggerFactory.getLogger(F9904Controller.class);
-	
 	@Autowired
 	private SysFuncService sysFuncService;
 	

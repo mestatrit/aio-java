@@ -57,6 +57,7 @@ public class SysFuncService implements BaseService , BaseSysFuncService {
 		log.debug("-----------------Method-save------------------------");
 		
 		try {
+			tblSysSysfun.setSfId(tblSysSysfunDAO.findNextSequenceVal("SEQ_TBL_SYS_SYSFUN_SF_ID"));
 			tblSysSysfunDAO.save(tblSysSysfun);
 		} catch(Exception e) {
 			log.error(e.getMessage());

@@ -58,6 +58,7 @@ public class SysBulletinService implements BaseService {
 		log.debug("-----------------Method-save------------------------");
 
 		try {
+			tblSysBulletin.setBtId(tblSysBulletinDAO.findNextSequenceVal("SEQ_TBL_SYS_BULLETIN_BT_ID"));
 			tblSysBulletinDAO.save(tblSysBulletin);
 		} catch (Exception e) {
 			log.error(e.getMessage());

@@ -138,7 +138,7 @@ public class F9906Controller extends BaseController {
 			super.ajaxOutJson(f9906OutObject, response);
 			return;
 		}
-
+		
 		tblSysUsrinf.setUiUserPwd(EncryptUtils.passwordMd52Hex(f9906InObject.getUiUserPwd()));
 		tblSysUsrinf.setUiCurLogStats("0");
 		tblSysUsrinf.setUiLstModiUserId(SystemUtils.getCurrentUserId(request));
