@@ -250,7 +250,7 @@
                             </div>
                             <div class="appButton">
                                 <div class="appButton_appIcon">
-                                    <img class="appButton_appIconImg" src="images/icons/history.png" onclick="dt.add_window('3103', 'queryams', '影像流历史库', 'http://10.168.2.208:8080/aio-ams/f9901.do?j_username=sa&j_password=111111', event);" />
+                                    <img class="appButton_appIconImg" src="images/icons/history.png" onclick="dt.add_window('3103', 'queryams', '影像流历史库', 'http://10.168.4.16:5060/aio-ams/f9901.do?j_username=sa&j_password=111111', event);" />
                                 </div>
                                 <div class="appButton_appName">
                                     <div class="appButton_appName_inner"><a>影像流历史库</a></div>
