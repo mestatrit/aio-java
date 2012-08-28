@@ -57,7 +57,8 @@ public class SysUserService implements BaseService {
 		log.debug("-----------------Service-SysUserService------------------------");
 		log.debug("-----------------Method-changeUserStatus------------------------");
 
-		TblSysUsrinf currentUser = systemUser.getTblSysUsrinf();
+		String username = systemUser.getUsername();
+		TblSysUsrinf currentUser = tblSysUsrinfDAO.searchByUserName(username);
 		currentUser.setUiCurLogStats(status);
 		currentUser.setUiLstIpAddress(request.getRemoteAddr());
 		currentUser.setUiLstUserLoginTime(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));

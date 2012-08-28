@@ -35,6 +35,11 @@
 			<artifactId>codec</artifactId>
 			<version>1.0.2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.cdpc.aio</groupId>
+			<artifactId>aio-web-common</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 	<!-- ==================================================== -->
 	<!-- ==================================================== -->
 		<dependency>

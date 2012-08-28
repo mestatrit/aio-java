@@ -99,7 +99,6 @@ public class LoginController extends BaseController {
 		// 加载用户菜单、权限等信息
 		SystemUser systemUser = new SystemUser();
 		systemUser.setUsername(username);
-		systemUser.setTblSysUsrinf(tblSysUsrinf);
 
 		request.getSession().setAttribute("sysuser", systemUser);
 		// ===========================================================================================
