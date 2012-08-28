@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+	
+	<context:component-scan base-package="com.cdpc.aio.web.controller"/>
+	
+	<mvc:annotation-driven />
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
+	
+	<bean id="internalJspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<mvc:interceptors>
+		<bean class="com.cdpc.aio.common.mvc.HandlerInterceptor"/>
+	</mvc:interceptors>
+	
+	<!-- 静态资源处理器配置
+	<mvc:default-servlet-handler/>  
+	 -->
+	 
+	<mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/>
+	<mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
+	<mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+	    <property name="defaultErrorView">
+	        <value>pages/error</value>
+	    </property>
+	    <property name="defaultStatusCode">
+	        <value>500</value> 
+	    </property>
+		<property name="warnLogCategory">
+	        <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>  
+	    </property>
+	</bean>
+	
+</beans>
