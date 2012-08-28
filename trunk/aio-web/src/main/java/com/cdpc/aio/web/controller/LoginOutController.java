@@ -40,6 +40,6 @@ public class LoginOutController extends BaseController {
 		log.debug("用户:" + systemUser.getUsername() + "退出...");
 		
 		sysUserService.changeUserStatus(systemUser, request, Constants.LOGOUT_FLAG);
-		return "pages/logout";
+		return "redirect:index.jsp";
 	}
 }
