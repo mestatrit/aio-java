@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>管理系统登陆界面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="expires" content="Fri, 12 Jan 2001 18:18:18 GMT"/>
+
+<link rel="stylesheet" href="css/lib/style_default.css" media="screen"/>
+<script type="text/javascript" src="js/lib/jquery_1.6.4/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="js/lib/common.js"></script>
+<script type="text/javascript" src="js/pages/index.js"></script>
+</head>
+
+<body style="background:url(images/bjtp.gif) repeat-x top center;">    
+    <div class="wid950">
+        <div class="login_main" style="width:322px;height:170px;margin:200px auto 0 auto;background:url(images/mid0.gif);">
+		       <div class="logo" style="width:100px;height:47px;padding-left:10px;text-indent:500px;white-space:nowrap;overflow:hidden;">上海银行</div>
+               <div class="userLogin">
+                    <div id="freeform">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr class="tr_username" height="34">
+                            <th width="70"></th>
+                            <td>
+                               <input class="input_text" type="text" name="username" tabindex="1" autocomplete="off" style="width:240px;height:21px;ime-mode:disabled;border:none;background:none;"/>
+                            </td>
+                        </tr>
+                        <tr class="tr_srt"  height="34">
+                            <th width="70"></th>
+                            <td>
+                                <input class="input_text" type="password" name="password" tabindex="2" style="width:240px;height:21px;border:none;background:none;" />
+                            </td>
+                        </tr>
+                        <tr class="tr_select">
+                            <th></th>
+                            <td>
+                                <input checked type="checkbox" id="remember1" tabindex="6" /><label for="remember1" style="font-size:12px;">记住我的用户名</label>
+                            </td>
+                        </tr>
+                        <tr class="tr_btn" height="40">
+                            <th colspan="2">
+                              <div class="btn_login fl">
+                                <input type="button" name="button" id="button" value="登 录" onclick="sbmt()" />
+                                </div>                            </th>
+                        </tr>
+                    </table>
+	                </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

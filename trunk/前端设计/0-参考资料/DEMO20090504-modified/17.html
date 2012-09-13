@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分期付款-批次记录-增加</title>
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/nicejforms.js"></script>
+<script type="text/javascript" src="javascript/menu.js"></script>
+<link rel="stylesheet" href="styles/styles.css" media="screen">
+</head>
+
+<body>
+<div class="content">
+	<div class="header">
+        <div class="top_u"><p><a href="####"><span>JEWELL</span></a>  <a href="####">修改密码</a>  <a href="####">退出</a></p></div>
+  </div>
+    <div class="menubar">
+        <ul id="jsddm">
+            <li class="on"><a href="####">核心配置</a>
+            	<dl>
+                    <dd><a href="#">账户周期信息维护</a></dd>
+                    <dd><a href="#">银行基本信息维护</a></dd>
+                    <dd><a href="22.html">非处理日</a></dd>
+                    <dd><a href="#">效验密钥表维护</a></dd>
+                    <dd><a href="#">货币表维护</a></dd>
+                    <dd><a href="#">年费费率表维护</a></dd>
+                    <dd><a href="#">账户组参数维护</a></dd>
+                    <dd><a href="#">账户参数维护</a></dd>
+                    <dd><a href="03.html">卡产品组维护</a></dd>
+                    <dd><a href="#">卡产品表维护</a></dd>
+                    <dd><a href="23.html">联机交易参数配置</a></dd>
+                    <dd><a href="#">交易代码映射维护</a></dd>
+                    <dd><a href="#">客户授权超限参数维护</a></dd>
+                    <dd><a href="#">故障终端维护</a></dd>
+                    <dd><a href="#">系统参数维护</a></dd>
+                    <dd><a href="#">其他参数维护</a></dd>
+                    <dd><a href="#">商户类别代码表维护</a></dd>
+                    <dd><a href="#">查找表</a></dd>
+                    <dd><a href="#">制卡文件维护</a></dd>
+                    <dd><a href="#">会计科目</a></dd>
+				</dl>
+            </li>
+            <li><a href="####">申请处理</a>
+           	<dl>
+                    <dd><a href="05.html">新申请处理</a></dd>
+                    <dd><a href="#">以往申请查询/维护</a></dd>
+                    <dd><a href="#">卡号查询锁定解锁</a></dd>
+				</dl>
+            
+            </li>
+            <li><a href="####">客户资料</a>
+           	<dl>
+                    <dd><a href="08.html">客户查询</a></dd>
+                    <dd><a href="#">卡片升降级信息浏览</a></dd>
+                    <dd><a href="#">补卡换卡信息浏览</a></dd>
+                    <dd><a href="#">销户信息浏览</a></dd>
+                    <dd><a href="#">一定时间限额申请浏览</a></dd>
+                    <dd><a href="#">补打对账单申请浏览</a></dd>
+                    <dd><a href="#">客户坏账申请浏览</a></dd>
+				</dl>
+            </li> 
+            <li><a href="####">信用授权</a>
+          	<dl>
+                    <dd><a href="#">核准交易维护</a></dd>
+                    <dd><a href="#">卡审核信息维护</a></dd>
+                    <dd><a href="#">在线授权交易查询</a></dd>
+                    <dd><a href="#">照会原因代码</a></dd>
+				</dl>
+            </li> 
+            <li><a href="####">账户管理</a></li>    
+            <li><a href="####">积分计划</a>
+         	<dl>
+                    <dd><a href="#">积分计划</a></dd>
+                    <dd><a href="#">基准兑换</a></dd>
+                    <dd><a href="#">类别维护</a></dd>
+                    <dd><a href="#">会员推荐会员计划维护</a></dd>
+                    <dd><a href="#">推荐申请奖励计划维护</a></dd>
+                    <dd><a href="#">幸运抽奖请求浏览</a></dd>
+				</dl>
+            </li>       
+            <li><a href="####">分期付款</a>
+               <dl>
+                    <dd><a href="13.html">分期付款数据录入</a></dd>
+                    <dd><a href="#">分期付款计划维护</a></dd>
+				</dl>
+            </li>    
+            <li><a href="####">催收跟踪</a>
+           	<dl>
+                    <dd><a href="21.html">队列和状态概要</a></dd>
+                    <dd><a href="#">正在处理的账户</a></dd>
+                    <dd><a href="#">催收员队列重排</a></dd>
+                    <dd><a href="#">CTM参数设置</a></dd>
+				</dl>
+            </li>    
+            <li><a href="####">系统管理</a>
+                <dl>
+                    <dd><a href="#">操作员ID维护</a></dd>
+                    <dd><a href="18.html">操作员组维护</a></dd>
+                    <dd><a href="#">当前登陆操作员</a></dd>
+                    <dd><a href="#">系统安全参数维护</a></dd>
+                    <dd><a href="#">批量文件传入</a></dd>
+                    <dd><a href="#">批量启动菜单</a></dd>
+                    <dd><a href="#">批量执行结果</a></dd>
+                    <dd><a href="#">批量文件传出</a></dd>
+                    <dd><a href="#">联机交易监控</a></dd>
+                    <dd><a href="20.html">联机进程监控</a></dd>
+				</dl>
+            </li>
+        </ul>
+       <!-- <div class="verion">20100106/Verion:4821</div>-->
+        <div class="hr"></div>
+    </div>
+    <div class="outer">
+        <div class="Breadcrumb"><a href="index.php">起始位置</a> > 卡产品维护 > 分期付款-批次头-浏览</div>
+      <h2>分期付款-批次记录-增加</h2>
+      <div class="box_form">
+        <form action="####" method="post" class="niceform">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="16%">分行标识<span>*</span></th>
+              <td width="33%">801 - 营业部</td>
+              <th width="17%">批次号<span>*</span></th>
+              <td width="34%">3</td>
+            </tr>
+            <tr>
+              <th>批次类型 <span>*</span></th>
+              <td>分期付款计划注册</td>
+              <th>批次太阳日期<span>*</span></th>
+              <td>2010006（YYYYDDD）</td>
+            </tr>
+                        <tr>
+              <th width="16%">批次笔数<span>*</span></th>
+              <td width="33%">1</td>
+              <th width="17%">实际笔数 <span>*</span></th>
+              <td width="34%">0</td>
+            </tr>
+            <tr>
+              <th>交易货币代码 <span>*</span></th>
+              <td>156 - CNY</td>
+              <th>用户标识<span></span></th>
+              <td>jewell</td>
+            </tr>
+                        <tr>
+              <th>批次状态 <span>*</span></th>
+              <td colspan="3">I - 批次不平<span></span></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <br />
+      <div class="box_form">
+        <form action="####" method="post" class="niceform">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="16%">卡号<span>*</span></th>
+              <td colspan="3"><input type="text" name="textfield8" id="textfield8" /></td>
+            </tr>
+            <tr>
+              <th>分期还款计划代码 <span>*</span></th>
+              <td><select name="select3" id="select3" class="width_90">
+                <option> --未选择--</option>
+              </select></td>
+              <th>入账标志<span>*</span></th>
+              <td>N</td>
+            </tr>
+                        <tr>
+              <th width="16%">商户代码</th>
+              <td width="33%">&nbsp;</td>
+              <th width="17%">罚金分期付款月份 <span>*</span></th>
+              <td width="34%"><input name="textfield" type="text" id="textfield" size="8" /></td>
+            </tr>
+            <tr>
+              <th>描述<span></span></th>
+              <td>&nbsp;</td>
+              <th>用户标识<span></span></th>
+              <td><select name="select5" id="select5" class="width_90">
+                <option>Y - 是</option>
+              </select></td>
+            </tr>
+            <tr>
+              <th>月还款 <span>*</span></th>
+              <td>&nbsp;</td>
+              <th>额度扣减比例</th>
+              <td>%</td>
+            </tr>
+            <tr>
+              <th>还款周期 <span>*</span></th>
+              <td>&nbsp;</td>
+              <th>月手续费率</th>
+              <td>%</td>
+            </tr>
+            <tr>
+              <th>利息</th>
+              <td>%</td>
+              <th>入账币种</th>
+              <td>16CNY</td>
+            </tr>
+          </table>
+        </form>
+      </div>
+        
+<div class="button_mun">
+  <ul>
+            	<li><a href="####"><span>提交添加</span></a></li>
+                <li><a href="####"><span>返回</span></a></li>
+          </ul>
+        </div>
+    </div>
+<div class="foot">Copyright &copy;2008 Shanghai Huateng Software System Co., Ltd.All Rights Reserved.</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){$.NiceJForms.build()});
+</script>
+</body>
+</html>
